@@ -4,7 +4,6 @@ import net.luckshark.Bark;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.MaceItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -23,16 +22,12 @@ public class ModItemGroups {
 
     public static final List<Item> BARK_GROUP_LIST = new ArrayList<>();
 
-    private static final RegistryKey<ItemGroup> BARK_GROUP = register("bark_group", BARK_GROUP_LIST);
+    public static final RegistryKey<ItemGroup> BARK_GROUP = register("bark_group", BARK_GROUP_LIST);
 
     private static RegistryKey<ItemGroup> register(String id, List<Item> list) {
         RegistryKey<ItemGroup> group = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Bark.MOD_ID, id));
         groupMap.put(list, group);
-        return RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Bark.MOD_ID, id));
-    }
-
-    public static RegistryKey<ItemGroup> getGroup(List<Item> list) {
-        return groupMap.get(list);
+        return group;
     }
 
     public static void addItemToGroup(Item item, List<Item> list) {

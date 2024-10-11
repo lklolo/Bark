@@ -14,5 +14,7 @@ public class BarkDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ItemTagsProvider::new);
 		pack.addProvider(ModelsProvider::new);
 		pack.addProvider(RecipesProvider::new);
+		pack.addProvider(ENUSLanProvider::new);
+		pack.addProvider(ZHCNLanProvider::new);
 	}
 }
