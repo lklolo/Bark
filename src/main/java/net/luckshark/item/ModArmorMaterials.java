@@ -20,31 +20,21 @@ import java.util.function.Supplier;
 
 public class ModArmorMaterials {
 
-    public static final RegistryEntry<ArmorMaterial> OAK_BARK = defaultRegisterBarkMaterial("oak_bark", ModItems.OAK_BARK);
-    public static final RegistryEntry<ArmorMaterial> SPRUCE_BARK = defaultRegisterBarkMaterial("spruce_bark", ModItems.SPRUCE_BARK);
-    public static final RegistryEntry<ArmorMaterial> BIRCH_BARK = defaultRegisterBarkMaterial("birch_bark", ModItems.BIRCH_BARK);
-    public static final RegistryEntry<ArmorMaterial> JUNGLE_BARK = defaultRegisterBarkMaterial("jungle_bark", ModItems.JUNGLE_BARK);
-    public static final RegistryEntry<ArmorMaterial> ACACIA_BARK = defaultRegisterBarkMaterial("acacia_bark", ModItems.ACACIA_BARK);
-    public static final RegistryEntry<ArmorMaterial> DARK_OAK_BARK = defaultRegisterBarkMaterial("dark_oak_bark", ModItems.DARK_OAK_BARK);
-    public static final RegistryEntry<ArmorMaterial> MANGROVE_BARK = defaultRegisterBarkMaterial("mangrove_bark", ModItems.MANGROVE_BARK);
-    public static final RegistryEntry<ArmorMaterial> CHERRY_BARK = defaultRegisterBarkMaterial("cherry_bark", ModItems.CHERRY_BARK);
-    public static final RegistryEntry<ArmorMaterial> CRIMSON_BARK = defaultRegisterBarkMaterial("crimson_bark", ModItems.CRIMSON_BARK);
-    public static final RegistryEntry<ArmorMaterial> WARPED_BARK = defaultRegisterBarkMaterial("warped_bark", ModItems.WARPED_BARK);
-    public static final RegistryEntry<ArmorMaterial> BAMBOO_BARK = defaultRegisterMaterial(
-            "bamboo_bark",
-            1,
-            4,
-            5,
-            2,
-            4,
-            12,
-            SoundEvents.ITEM_ARMOR_EQUIP_WOLF,
-            6.0F,
-            0.2F,
-            Items.BAMBOO);
+    public static final RegistryEntry<ArmorMaterial> OAK_BARK = BarkMaterial("oak_bark", ModItems.OAK_BARK);
+    public static final RegistryEntry<ArmorMaterial> SPRUCE_BARK = BarkMaterial("spruce_bark", ModItems.SPRUCE_BARK);
+    public static final RegistryEntry<ArmorMaterial> BIRCH_BARK = BarkMaterial("birch_bark", ModItems.BIRCH_BARK);
+    public static final RegistryEntry<ArmorMaterial> JUNGLE_BARK = BarkMaterial("jungle_bark", ModItems.JUNGLE_BARK);
+    public static final RegistryEntry<ArmorMaterial> ACACIA_BARK = BarkMaterial("acacia_bark", ModItems.ACACIA_BARK);
+    public static final RegistryEntry<ArmorMaterial> DARK_OAK_BARK = BarkMaterial("dark_oak_bark", ModItems.DARK_OAK_BARK);
+    public static final RegistryEntry<ArmorMaterial> MANGROVE_BARK = BarkMaterial("mangrove_bark", ModItems.MANGROVE_BARK);
+    public static final RegistryEntry<ArmorMaterial> CHERRY_BARK = BarkMaterial("cherry_bark", ModItems.CHERRY_BARK);
+    public static final RegistryEntry<ArmorMaterial> CRIMSON_BARK = BarkMaterial("crimson_bark", ModItems.CRIMSON_BARK);
+    public static final RegistryEntry<ArmorMaterial> WARPED_BARK = BarkMaterial("warped_bark", ModItems.WARPED_BARK);
+    public static final RegistryEntry<ArmorMaterial> BAMBOO_BARK = Material("bamboo_bark", 1, 4, 5, 2, 4, 12,
+            SoundEvents.ITEM_ARMOR_EQUIP_WOLF, 6.0F, 0.2F, Items.BAMBOO);
 
-    private static RegistryEntry<ArmorMaterial> defaultRegisterBarkMaterial(String id, Item item) {
-        return defaultRegisterMaterial(
+    private static RegistryEntry<ArmorMaterial> BarkMaterial(String id, Item item) {
+        return Material(
                 id,
                 1,
                 4,
@@ -58,7 +48,7 @@ public class ModArmorMaterials {
                 item);
     }
 
-    private static RegistryEntry<ArmorMaterial> defaultRegisterMaterial(
+    private static RegistryEntry<ArmorMaterial> Material(
             String id,
             int BOOTS,
             int LEGGINGS,

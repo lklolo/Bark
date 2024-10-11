@@ -1,4 +1,4 @@
-package net.luckshark.gen;
+package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -24,8 +24,8 @@ public class ModelsProvider extends FabricModelProvider {
             itemModelGenerator.register(ModItems.BARK_LIST.get(i), Models.GENERATED);
         }
 
-        for (int i = 0; i < ModItems.ARMOR_LIST.size(); i++) {
-            itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_LIST.get(i));
+        for (int i = 0; i < ModItems.BARK_ARMOR_LIST.size(); i++) {
+            itemModelGenerator.registerArmor((ArmorItem) ModItems.BARK_ARMOR_LIST.get(i));
         }
 
     }

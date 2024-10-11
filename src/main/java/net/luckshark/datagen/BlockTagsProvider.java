@@ -1,10 +1,8 @@
-package net.luckshark.gen;
+package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.luckshark.tag.ModBlockTags;
-import net.luckshark.tag.ModItemTags;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 

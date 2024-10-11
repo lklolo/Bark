@@ -1,4 +1,4 @@
-package net.luckshark.gen;
+package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -15,8 +15,9 @@ public class ItemTagsProvider extends FabricTagProvider.ItemTagProvider{
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        for (int i = 0; i < ModItems.ARMOR_LIST.size(); i++) {
-            getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(ModItems.ARMOR_LIST.get(i));
+        for (int i = 0; i < ModItems.BARK_ARMOR_LIST.size(); i++) {
+            getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(ModItems.BARK_ARMOR_LIST.get(i));
         }
     }
+
 }
