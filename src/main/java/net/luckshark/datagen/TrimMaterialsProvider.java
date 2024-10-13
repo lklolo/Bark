@@ -174,8 +174,7 @@ public class TrimMaterialsProvider {
                 System.out.println("writeFile error");
                 return;
             }
-            for (int i1 = 0; i1 < materialsList.size(); i1++) {
-                Item materialItem = materialsList.get(i1);
+            for (Item materialItem : materialsList) {
                 String materialId = ModItems.idMap.get(materialItem);
                 String b = getNameSpace(materialItem) + ':' + "item/" + getId(item);
                 try {
@@ -226,22 +225,23 @@ public class TrimMaterialsProvider {
 
     private static void blocks(List<Item> list) {
         File file = new File(resourcesRoot + "assets/minecraft/atlases/blocks.json");
-        String content = "{\n" +
-                "  \"sources\": [\n" +
-                "    {\n" +
-                "      \"type\": \"paletted_permutations\",\n" +
-                "      \"textures\": [\n" +
-                "        \"trims/items/leggings_trim\",\n" +
-                "        \"trims/items/chestplate_trim\",\n" +
-                "        \"trims/items/helmet_trim\",\n" +
-                "        \"trims/items/boots_trim\"\n" +
-                "      ],\n" +
-                "      \"palette_key\": \"trims/color_palettes/trim_palette\",\n" +
-                "      \"permutations\": {\n" +
-                "      }\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}";
+        String content = """
+                {
+                  "sources": [
+                    {
+                      "type": "paletted_permutations",
+                      "textures": [
+                        "trims/items/leggings_trim",
+                        "trims/items/chestplate_trim",
+                        "trims/items/helmet_trim",
+                        "trims/items/boots_trim"
+                      ],
+                      "palette_key": "trims/color_palettes/trim_palette",
+                      "permutations": {
+                      }
+                    }
+                  ]
+                }""";
         if (!createPath(resourcesRoot + "assets/minecraft/atlases/")) {
             System.out.println("createPath error");
             return;
@@ -268,8 +268,7 @@ public class TrimMaterialsProvider {
                     .getAsJsonObject();
             JsonObject permutationsObject = sourcesObject.getAsJsonObject("permutations");
 
-            for (int i = 0; i < list.size(); i++) {
-                Item item = list.get(i);
+            for (Item item : list) {
                 String id = ModItems.idMap.get(item);
                 permutationsObject.addProperty(id, Bark.MOD_ID + ":trims/color_palettes/" + id);
             }
@@ -285,54 +284,55 @@ public class TrimMaterialsProvider {
 
     private static void armorTrims(List<Item> list) {
         File file = new File(resourcesRoot + "assets/minecraft/atlases/armor_trims.json");
-        String content = "{\n" +
-                "  \"sources\": [\n" +
-                "    {\n" +
-                "      \"type\": \"paletted_permutations\",\n" +
-                "      \"textures\": [\n" +
-                "        \"trims/models/armor/coast\",\n" +
-                "        \"trims/models/armor/coast_leggings\",\n" +
-                "        \"trims/models/armor/sentry\",\n" +
-                "        \"trims/models/armor/sentry_leggings\",\n" +
-                "        \"trims/models/armor/dune\",\n" +
-                "        \"trims/models/armor/dune_leggings\",\n" +
-                "        \"trims/models/armor/wild\",\n" +
-                "        \"trims/models/armor/wild_leggings\",\n" +
-                "        \"trims/models/armor/ward\",\n" +
-                "        \"trims/models/armor/ward_leggings\",\n" +
-                "        \"trims/models/armor/eye\",\n" +
-                "        \"trims/models/armor/eye_leggings\",\n" +
-                "        \"trims/models/armor/vex\",\n" +
-                "        \"trims/models/armor/vex_leggings\",\n" +
-                "        \"trims/models/armor/tide\",\n" +
-                "        \"trims/models/armor/tide_leggings\",\n" +
-                "        \"trims/models/armor/snout\",\n" +
-                "        \"trims/models/armor/snout_leggings\",\n" +
-                "        \"trims/models/armor/rib\",\n" +
-                "        \"trims/models/armor/rib_leggings\",\n" +
-                "        \"trims/models/armor/spire\",\n" +
-                "        \"trims/models/armor/spire_leggings\",\n" +
-                "        \"trims/models/armor/wayfinder\",\n" +
-                "        \"trims/models/armor/wayfinder_leggings\",\n" +
-                "        \"trims/models/armor/shaper\",\n" +
-                "        \"trims/models/armor/shaper_leggings\",\n" +
-                "        \"trims/models/armor/silence\",\n" +
-                "        \"trims/models/armor/silence_leggings\",\n" +
-                "        \"trims/models/armor/raiser\",\n" +
-                "        \"trims/models/armor/raiser_leggings\",\n" +
-                "        \"trims/models/armor/host\",\n" +
-                "        \"trims/models/armor/host_leggings\",\n" +
-                "        \"trims/models/armor/flow\",\n" +
-                "        \"trims/models/armor/flow_leggings\",\n" +
-                "        \"trims/models/armor/bolt\",\n" +
-                "        \"trims/models/armor/bolt_leggings\"\n" +
-                "      ],\n" +
-                "      \"palette_key\": \"trims/color_palettes/trim_palette\",\n" +
-                "      \"permutations\": {\n" +
-                "      }\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}";
+        String content = """
+                {
+                  "sources": [
+                    {
+                      "type": "paletted_permutations",
+                      "textures": [
+                        "trims/models/armor/coast",
+                        "trims/models/armor/coast_leggings",
+                        "trims/models/armor/sentry",
+                        "trims/models/armor/sentry_leggings",
+                        "trims/models/armor/dune",
+                        "trims/models/armor/dune_leggings",
+                        "trims/models/armor/wild",
+                        "trims/models/armor/wild_leggings",
+                        "trims/models/armor/ward",
+                        "trims/models/armor/ward_leggings",
+                        "trims/models/armor/eye",
+                        "trims/models/armor/eye_leggings",
+                        "trims/models/armor/vex",
+                        "trims/models/armor/vex_leggings",
+                        "trims/models/armor/tide",
+                        "trims/models/armor/tide_leggings",
+                        "trims/models/armor/snout",
+                        "trims/models/armor/snout_leggings",
+                        "trims/models/armor/rib",
+                        "trims/models/armor/rib_leggings",
+                        "trims/models/armor/spire",
+                        "trims/models/armor/spire_leggings",
+                        "trims/models/armor/wayfinder",
+                        "trims/models/armor/wayfinder_leggings",
+                        "trims/models/armor/shaper",
+                        "trims/models/armor/shaper_leggings",
+                        "trims/models/armor/silence",
+                        "trims/models/armor/silence_leggings",
+                        "trims/models/armor/raiser",
+                        "trims/models/armor/raiser_leggings",
+                        "trims/models/armor/host",
+                        "trims/models/armor/host_leggings",
+                        "trims/models/armor/flow",
+                        "trims/models/armor/flow_leggings",
+                        "trims/models/armor/bolt",
+                        "trims/models/armor/bolt_leggings"
+                      ],
+                      "palette_key": "trims/color_palettes/trim_palette",
+                      "permutations": {
+                      }
+                    }
+                  ]
+                }""";
         if (!createPath(resourcesRoot + "assets/minecraft/atlases/")) {
             System.out.println("createPath error");
             return;
@@ -359,8 +359,7 @@ public class TrimMaterialsProvider {
                     .getAsJsonObject();
             JsonObject permutationsObject = sourcesObject.getAsJsonObject("permutations");
 
-            for (int i = 0; i < list.size(); i++) {
-                Item item = list.get(i);
+            for (Item item : list) {
                 String id = ModItems.idMap.get(item);
                 permutationsObject.addProperty(id, Bark.MOD_ID + ":trims/color_palettes/" + id);
             }
@@ -379,8 +378,7 @@ public class TrimMaterialsProvider {
             System.out.println("createPath error");
             return;
         }
-        for (int i = 0; i < list.size(); i++) {
-            Item item = list.get(i);
+        for (Item item : list) {
             String id = ModItems.idMap.get(item);
             File file = new File(resourcesRoot + "data/" + Bark.MOD_ID + "/trim_material/" + id + ".json");
             String content = "{\n" +
@@ -432,11 +430,7 @@ public class TrimMaterialsProvider {
     private static Boolean createPath(String path){
         File dir = new File(path);
         if (!dir.exists()) {
-            if (dir.mkdirs()) {
-                return true;
-            }else {
-                return false;
-            }
+            return dir.mkdirs();
         }
         return true;
     }
