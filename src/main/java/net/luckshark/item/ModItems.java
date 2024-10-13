@@ -30,7 +30,6 @@ public class ModItems {
     public static final Item BAMBOO_BARK = ItemRegisters.Bark("bamboo_bark");
     public static final Item CRIMSON_BARK = ItemRegisters.Bark("crimson_bark");
     public static final Item WARPED_BARK = ItemRegisters.Bark("warped_bark");
-    public static final Item CUSTOM_MATERIAL = ItemRegisters.RegisterItem("custom_material", new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
 
     public static final Item OAK_BARK_HELMET = ItemRegisters.barkArmor("oak_bark_helmet", ModArmorMaterials.OAK_BARK, 6, 3);
     public static final Item SPRUCE_BARK_HELMET = ItemRegisters.barkArmor("spruce_bark_helmet", ModArmorMaterials.SPRUCE_BARK, 6, 3);

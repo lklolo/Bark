@@ -1,7 +1,7 @@
 {
   "asset_name": "mangrove_bark",
   "description": {
-    "color": "#00ffff",
+    "color": "#584526",
     "translate": "trim_material.bark.mangrove_bark"
   },
   "ingredient": "bark:mangrove_bark",

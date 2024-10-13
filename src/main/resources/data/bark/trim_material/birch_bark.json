@@ -1,7 +1,7 @@
 {
   "asset_name": "birch_bark",
   "description": {
-    "color": "#ffff00",
+    "color": "#bebeae",
     "translate": "trim_material.bark.birch_bark"
   },
   "ingredient": "bark:birch_bark",

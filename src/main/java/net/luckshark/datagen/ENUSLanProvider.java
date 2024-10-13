@@ -74,7 +74,17 @@ public class ENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.WARPED_BARK_BOOTS, "Warped Boots");
         translationBuilder.add(ModItems.BAMBOO_BARK_BOOTS, "Bamboo Boots");
 
-
+        translationBuilder.add("trim_material.bark.oak_bark", "Oak Material");
+        translationBuilder.add("trim_material.bark.spruce_bark", "Spruce Material");
+        translationBuilder.add("trim_material.bark.birch_bark", "Birch Material");
+        translationBuilder.add("trim_material.bark.jungle_bark", "Jungle Material");
+        translationBuilder.add("trim_material.bark.acacia_bark", "Acacia Material");
+        translationBuilder.add("trim_material.bark.dark_oak_bark", "Dark Oak Material");
+        translationBuilder.add("trim_material.bark.mangrove_bark", "Mangrove Material");
+        translationBuilder.add("trim_material.bark.cherry_bark", "Cherry Material");
+        translationBuilder.add("trim_material.bark.crimson_bark", "Crimson Material");
+        translationBuilder.add("trim_material.bark.warped_bark", "Warped Material");
+        translationBuilder.add("trim_material.bark.bamboo_bark", "Bamboo Material");
 
     }
 }

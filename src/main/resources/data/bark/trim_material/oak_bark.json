@@ -1,7 +1,7 @@
 {
   "asset_name": "oak_bark",
   "description": {
-    "color": "#ffffff",
+    "color": "#836741",
     "translate": "trim_material.bark.oak_bark"
   },
   "ingredient": "bark:oak_bark",

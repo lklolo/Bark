@@ -54,5 +54,16 @@
   "item.bark.warped_bark_chestplate": "Warped Chestplate",
   "item.bark.warped_bark_helmet": "Warped Helmet",
   "item.bark.warped_bark_leggings": "Warped Leggings",
-  "itemGroup.bark.bark_group": "Bark"
+  "itemGroup.bark.bark_group": "Bark",
+  "trim_material.bark.acacia_bark": "Acacia Material",
+  "trim_material.bark.bamboo_bark": "Bamboo Material",
+  "trim_material.bark.birch_bark": "Birch Material",
+  "trim_material.bark.cherry_bark": "Cherry Material",
+  "trim_material.bark.crimson_bark": "Crimson Material",
+  "trim_material.bark.dark_oak_bark": "Dark Oak Material",
+  "trim_material.bark.jungle_bark": "Jungle Material",
+  "trim_material.bark.mangrove_bark": "Mangrove Material",
+  "trim_material.bark.oak_bark": "Oak Material",
+  "trim_material.bark.spruce_bark": "Spruce Material",
+  "trim_material.bark.warped_bark": "Warped Material"
 }
