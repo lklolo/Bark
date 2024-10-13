@@ -80,7 +80,7 @@ public class RecipesProvider extends FabricRecipeProvider {
                 .pattern("A A")
                 .input('A', materialsItem)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(materialsItem))
-                .offerTo(exporter, Identifier.of(Bark.MOD_ID, getPaht(resultItem)));
+                .offerTo(exporter, Identifier.of(Bark.MOD_ID, ModItems.idMap.get(resultItem)));
     }
     private void chestplate(Item materialsItem, Item resultItem) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, resultItem, 1)
@@ -89,7 +89,7 @@ public class RecipesProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .input('A', materialsItem)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(materialsItem))
-                .offerTo(exporter, Identifier.of(Bark.MOD_ID, getPaht(resultItem)));
+                .offerTo(exporter, Identifier.of(Bark.MOD_ID, ModItems.idMap.get(resultItem)));
     }
     private void leggings(Item materialsItem, Item resultItem) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, resultItem, 1)
@@ -98,7 +98,7 @@ public class RecipesProvider extends FabricRecipeProvider {
                 .pattern("A A")
                 .input('A', materialsItem)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(materialsItem))
-                .offerTo(exporter, Identifier.of(Bark.MOD_ID, getPaht(resultItem)));
+                .offerTo(exporter, Identifier.of(Bark.MOD_ID, ModItems.idMap.get(resultItem)));
     }
     private void boots(Item materialsItem, Item resultItem) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, resultItem, 1)
@@ -106,10 +106,6 @@ public class RecipesProvider extends FabricRecipeProvider {
                 .pattern("A A")
                 .input('A', materialsItem)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(materialsItem))
-                .offerTo(exporter, Identifier.of(Bark.MOD_ID, getPaht(resultItem)));
-    }
-
-    private static String getPaht(Item item) {
-        return item.toString().split(":")[1];
+                .offerTo(exporter, Identifier.of(Bark.MOD_ID, ModItems.idMap.get(resultItem)));
     }
 }

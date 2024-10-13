@@ -1,0 +1,9 @@
+{
+  "asset_name": "jungle_bark",
+  "description": {
+    "color": "#00ff00",
+    "translate": "trim_material.bark.jungle_bark"
+  },
+  "ingredient": "bark:jungle_bark",
+  "item_model_index": 0.14
+}

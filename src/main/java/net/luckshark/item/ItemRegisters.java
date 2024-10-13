@@ -29,13 +29,14 @@ public class ItemRegisters {
         Item item = RegisterItem(id, Item);
         ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(item));
         ModItemGroups.addItemToGroup(item, list);
+        ModItems.idMap.put(item, id);
         return item;
     }
 
     public static Item Bark(String id) {
-        Item Item = RegisterItem(id, new Item(new Item.Settings().food(ModFoodComponents.MAP.get(id))), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
-        ModItems.BARK_LIST.add(Item);
-        return Item;
+        Item item = RegisterItem(id, new Item(new Item.Settings().food(ModFoodComponents.MAP.get(id))), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+        ModItems.BARK_LIST.add(item);
+        return item;
     }
 
     public static Item barkArmor(String id, RegistryEntry<ArmorMaterial> material, int multiplier, int type) {

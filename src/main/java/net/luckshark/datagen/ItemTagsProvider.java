@@ -18,6 +18,9 @@ public class ItemTagsProvider extends FabricTagProvider.ItemTagProvider{
         for (int i = 0; i < ModItems.BARK_ARMOR_LIST.size(); i++) {
             getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(ModItems.BARK_ARMOR_LIST.get(i));
         }
+        for (int i = 0; i < ModItems.BARK_LIST.size(); i++) {
+            getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.BARK_LIST.get(i));
+        }
     }
 
 }
