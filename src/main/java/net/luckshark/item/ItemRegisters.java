@@ -2,7 +2,7 @@ package net.luckshark.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.luckshark.Bark;
-import net.luckshark.item.custom.ModArmorItem;
+import net.luckshark.item.custom.BarkArmorItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -44,7 +44,7 @@ public class ItemRegisters {
         switch (type) {
             case 3 :
                 item = RegisterItem(id,
-                    new ModArmorItem(
+                    new BarkArmorItem(
                             material,
                             ArmorItem.Type.HELMET,
                             new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(multiplier))
@@ -57,7 +57,7 @@ public class ItemRegisters {
                 return item;
             case 2 :
                 item = RegisterItem(id,
-                    new ModArmorItem(
+                    new BarkArmorItem(
                             material,
                             ArmorItem.Type.CHESTPLATE,
                             new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(multiplier))
@@ -70,7 +70,7 @@ public class ItemRegisters {
                 return item;
             case 1 :
                 item = RegisterItem(id,
-                    new ModArmorItem(
+                    new BarkArmorItem(
                             material,
                             ArmorItem.Type.LEGGINGS,
                             new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(multiplier))
@@ -83,7 +83,7 @@ public class ItemRegisters {
                 return item;
             case 0 :
                 item = RegisterItem(id,
-                    new ModArmorItem(
+                    new BarkArmorItem(
                             material,
                             ArmorItem.Type.BOOTS,
                             new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(multiplier))
@@ -106,7 +106,7 @@ public class ItemRegisters {
         switch (type) {
             case 3 :
                 item = RegisterItem(id,
-                        new ModArmorItem(
+                        new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.HELMET,
                                 new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(multiplier))
@@ -119,7 +119,7 @@ public class ItemRegisters {
                 return item;
             case 2 :
                 item = RegisterItem(id,
-                        new ModArmorItem(
+                        new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.CHESTPLATE,
                                 new Item.Settings().fireproof().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(multiplier))
@@ -132,7 +132,7 @@ public class ItemRegisters {
                 return item;
             case 1 :
                 item = RegisterItem(id,
-                        new ModArmorItem(
+                        new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.LEGGINGS,
                                 new Item.Settings().fireproof().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(multiplier))
@@ -145,7 +145,7 @@ public class ItemRegisters {
                 return item;
             case 0 :
                 item = RegisterItem(id,
-                        new ModArmorItem(
+                        new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.BOOTS,
                                 new Item.Settings().fireproof().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(multiplier))

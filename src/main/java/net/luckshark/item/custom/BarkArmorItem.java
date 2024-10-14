@@ -2,6 +2,7 @@ package net.luckshark.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.luckshark.item.ModArmorMaterials;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -9,14 +10,19 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.trim.ArmorTrim;
+import net.minecraft.item.trim.ArmorTrimMaterial;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+public class BarkArmorItem extends ArmorItem {
 
-    private static final Map<ArmorMaterial, StatusEffectInstance> MAP =
+    private static final Map<ArmorMaterial, StatusEffectInstance> ARMOR_MATERIALS_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                     .put(ModArmorMaterials.OAK_BARK.value(), new StatusEffectInstance(
                             StatusEffects.SATURATION , 10, 1, false, false, false
@@ -51,10 +57,24 @@ public class ModArmorItem extends ArmorItem {
                     .put(ModArmorMaterials.BAMBOO_BARK.value(), new StatusEffectInstance(
                             StatusEffects.SLOW_FALLING, 10, 1, false, false, false
                     ))//缓降
-
                     .build();
 
-    public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
+    private static final Map<String, ArmorMaterial> TRIM_MATERIALS_MAP =
+            (new ImmutableMap.Builder<String, ArmorMaterial>())
+                    .put("oak_bark", ModArmorMaterials.OAK_BARK.value())
+                    .put("spruce_bark", ModArmorMaterials.SPRUCE_BARK.value())
+                    .put("birch_bark", ModArmorMaterials.BIRCH_BARK.value())
+                    .put("jungle_bark", ModArmorMaterials.JUNGLE_BARK.value())
+                    .put("acacia_bark", ModArmorMaterials.ACACIA_BARK.value())
+                    .put("dark_oak_bark", ModArmorMaterials.DARK_OAK_BARK.value())
+                    .put("mangrove_bark", ModArmorMaterials.MANGROVE_BARK.value())
+                    .put("cherry_bark", ModArmorMaterials.CHERRY_BARK.value())
+                    .put("crimson_bark", ModArmorMaterials.CRIMSON_BARK.value())
+                    .put("warped_bark", ModArmorMaterials.WARPED_BARK.value())
+                    .put("bamboo_bark", ModArmorMaterials.BAMBOO_BARK.value())
+                    .build();
+
+    public BarkArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
@@ -69,16 +89,41 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
-
-        for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MAP.entrySet()) {
-            ArmorMaterial material = entry.getKey();
+        DynamicRegistryManager manager = player.getWorld().getRegistryManager();
+        ArmorTrimMaterial trimMaterial = getArmorTrimMaterial(manager, player);
+        if (trimMaterial != null) {
+            StatusEffectInstance effect = ARMOR_MATERIALS_MAP.get(TRIM_MATERIALS_MAP.get(trimMaterial.assetName()));
+            if (effect != null) {
+                addStatusEffectForMaterial(player, effect);
+            }
+        }
+        for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : ARMOR_MATERIALS_MAP.entrySet()) {
+            ArmorMaterial armorMaterial = entry.getKey();
             StatusEffectInstance effect = entry.getValue();
-
-            if (hasCorrectArmorSet(player, material)) {
+            if (hasCorrectArmorSet(player, armorMaterial)) {
                 addStatusEffectForMaterial(player, effect);
             }
         }
 
+    }
+
+    private ArmorTrimMaterial getArmorTrimMaterial(DynamicRegistryManager manager, PlayerEntity player) {
+        ArmorTrimMaterial material = null;
+        for (ItemStack armorStack : player.getArmorItems()) {
+            ArmorTrim trim = getTrim(manager, armorStack);
+            if (trim == null) {
+                return null;
+            }
+
+            ArmorTrimMaterial currentMaterial = trim.getMaterial().value();
+            if (material == null) {
+                material = currentMaterial;
+            } else if (!material.equals(currentMaterial)) {
+                return null;
+            }
+        }
+
+        return material;
     }
 
     private boolean hasCorrectArmorSet(PlayerEntity player, ArmorMaterial material) {
@@ -115,5 +160,9 @@ public class ModArmorItem extends ArmorItem {
         ItemStack boots = player.getInventory().getArmorStack(0);
 
         return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty();
+    }
+
+    public static @Nullable ArmorTrim getTrim(@NotNull DynamicRegistryManager manager, @NotNull ItemStack stack) {
+        return stack.get(DataComponentTypes.TRIM);
     }
 }
