@@ -38,7 +38,7 @@ public class BarkArmorItem extends ArmorItem {
                     ))//夜视
                     .put(ModArmorMaterials.ACACIA_BARK.value(), new StatusEffectInstance(
                           StatusEffects.INSTANT_HEALTH, 10, 1, false, false, false
-                    ))//金合欢具有抗菌消炎、消肿止痛、治疗腰膝酸软的作用，多用于治疗风湿等疾病。
+                    ))//治疗
                     .put(ModArmorMaterials.DARK_OAK_BARK.value(), new StatusEffectInstance(
                             StatusEffects.STRENGTH, 10, 1, false, false, false
                     ))//力量
@@ -110,7 +110,7 @@ public class BarkArmorItem extends ArmorItem {
     private ArmorTrimMaterial getArmorTrimMaterial(DynamicRegistryManager manager, PlayerEntity player) {
         ArmorTrimMaterial material = null;
         for (ItemStack armorStack : player.getArmorItems()) {
-            ArmorTrim trim = getTrim(manager, armorStack);
+            ArmorTrim trim = getTrim(armorStack);
             if (trim == null) {
                 return null;
             }
@@ -162,7 +162,7 @@ public class BarkArmorItem extends ArmorItem {
         return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty();
     }
 
-    public static @Nullable ArmorTrim getTrim(@NotNull DynamicRegistryManager manager, @NotNull ItemStack stack) {
+    public static @Nullable ArmorTrim getTrim(@NotNull ItemStack stack) {
         return stack.get(DataComponentTypes.TRIM);
     }
 }
