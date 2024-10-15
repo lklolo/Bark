@@ -18,18 +18,19 @@ public class ModItems {
     public static List<Item> BARK_LEGGINGS_LIST = new ArrayList<>();
     public static List<Item> BARK_BOOTS_LIST = new ArrayList<>();
     public static List<Item> BARK_LIST = new ArrayList<>();
+    public static List<Item> BARK_ESSENCE_LIST = new ArrayList<>();
 
-    public static final Item OAK_BARK = ItemRegisters.Bark("oak_bark");
-    public static final Item SPRUCE_BARK = ItemRegisters.Bark("spruce_bark");
-    public static final Item BIRCH_BARK = ItemRegisters.Bark("birch_bark");
-    public static final Item JUNGLE_BARK = ItemRegisters.Bark("jungle_bark");
-    public static final Item ACACIA_BARK = ItemRegisters.Bark("acacia_bark");
-    public static final Item DARK_OAK_BARK = ItemRegisters.Bark("dark_oak_bark");
-    public static final Item MANGROVE_BARK = ItemRegisters.Bark("mangrove_bark");
-    public static final Item CHERRY_BARK = ItemRegisters.Bark("cherry_bark");
-    public static final Item BAMBOO_BARK = ItemRegisters.Bark("bamboo_bark");
-    public static final Item CRIMSON_BARK = ItemRegisters.Bark("crimson_bark");
-    public static final Item WARPED_BARK = ItemRegisters.Bark("warped_bark");
+    public static final Item OAK_BARK = ItemRegisters.bark("oak_bark");
+    public static final Item SPRUCE_BARK = ItemRegisters.bark("spruce_bark");
+    public static final Item BIRCH_BARK = ItemRegisters.bark("birch_bark");
+    public static final Item JUNGLE_BARK = ItemRegisters.bark("jungle_bark");
+    public static final Item ACACIA_BARK = ItemRegisters.bark("acacia_bark");
+    public static final Item DARK_OAK_BARK = ItemRegisters.bark("dark_oak_bark");
+    public static final Item MANGROVE_BARK = ItemRegisters.bark("mangrove_bark");
+    public static final Item CHERRY_BARK = ItemRegisters.bark("cherry_bark");
+    public static final Item BAMBOO_BARK = ItemRegisters.bark("bamboo_bark");
+    public static final Item CRIMSON_BARK = ItemRegisters.bark("crimson_bark");
+    public static final Item WARPED_BARK = ItemRegisters.bark("warped_bark");
 
     public static final Item OAK_BARK_HELMET = ItemRegisters.barkArmor("oak_bark_helmet", ModArmorMaterials.OAK_BARK, 6, 3);
     public static final Item SPRUCE_BARK_HELMET = ItemRegisters.barkArmor("spruce_bark_helmet", ModArmorMaterials.SPRUCE_BARK, 6, 3);
@@ -75,6 +76,20 @@ public class ModItems {
     public static final Item BAMBOO_BARK_BOOTS = ItemRegisters.barkArmor("bamboo_bark_boots", ModArmorMaterials.BAMBOO_BARK, 3, 0);
     public static final Item CRIMSON_BARK_BOOTS = ItemRegisters.barkArmor("crimson_bark_boots", ModArmorMaterials.CRIMSON_BARK, 5, 0, true);
     public static final Item WARPED_BARK_BOOTS = ItemRegisters.barkArmor("warped_bark_boots", ModArmorMaterials.WARPED_BARK, 5, 0, true);
+
+    public static final Item OAK_BARK_ESSENCE = ItemRegisters.essence("oak_bark_essence");
+    public static final Item SPRUCE_BARK_ESSENCE = ItemRegisters.essence("spruce_bark_essence");
+    public static final Item BIRCH_BARK_ESSENCE = ItemRegisters.essence("birch_bark_essence");
+    public static final Item JUNGLE_BARK_ESSENCE = ItemRegisters.essence("jungle_bark_essence");
+    public static final Item ACACIA_BARK_ESSENCE = ItemRegisters.essence("acacia_bark_essence");
+    public static final Item DARK_OAK_BARK_ESSENCE = ItemRegisters.essence("dark_oak_bark_essence");
+    public static final Item MANGROVE_BARK_ESSENCE = ItemRegisters.essence("mangrove_bark_essence");
+    public static final Item CHERRY_BARK_ESSENCE = ItemRegisters.essence("cherry_bark_essence");
+    public static final Item BAMBOO_BARK_ESSENCE = ItemRegisters.essence("bamboo_bark_essence");
+    public static final Item CRIMSON_BARK_ESSENCE = ItemRegisters.essence("crimson_bark_essence");
+    public static final Item WARPED_BARK_ESSENCE = ItemRegisters.essence("warped_bark_essence");
+    public static final Item QUILMOR = ItemRegisters.RegisterItem("quilmor", new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+    //The word "Quilmor" is created by LKLOLO, it translates from chinese "虬杪馥凝", which means "Fragrant Essence of Twisted Boughs"
 
     public static void registerModItems(){
         ItemRegisters.incombustibility(CRIMSON_BARK);

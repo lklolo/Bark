@@ -21,24 +21,24 @@ public class ModFoodComponents {
     public static final FoodComponent DARK_OAK_BARK = barkFood(StatusEffects.STRENGTH);
     public static final FoodComponent MANGROVE_BARK = barkFood(StatusEffects.WATER_BREATHING);
     public static final FoodComponent CHERRY_BARK = barkFood(StatusEffects.JUMP_BOOST);
-    public static final FoodComponent CRIMSON_BARK = new FoodComponent.Builder().nutrition(1).saturationModifier(1.0F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600), 0.2F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 300), 1.0f)
+    public static final FoodComponent CRIMSON_BARK = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600), 0.1F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600), 2.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 300), 3.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300),  1.0f)
             .build();
-    public static final FoodComponent WARPED_BARK = new FoodComponent.Builder().nutrition(1).saturationModifier(1.0F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600), 0.2F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 300), 1.0f)
+    public static final FoodComponent WARPED_BARK = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600), 0.1F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600), 2.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 300), 3.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300),  1.0f)
             .build();
     public static final FoodComponent BAMBOO_BARK = barkFood(StatusEffects.SLOW_FALLING);
 
     public static FoodComponent barkFood(RegistryEntry<StatusEffect> effect) {
-        return new FoodComponent.Builder().nutrition(1).saturationModifier(1.0F)
-                .statusEffect(new StatusEffectInstance(effect, 600), 0.2F)
-                .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 300), 1.0f)
+        return new FoodComponent.Builder().nutrition(1).saturationModifier(0.08F)
+                .statusEffect(new StatusEffectInstance(effect, 600), 0.1F)
+                .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600), 5.0f)
                 .build();
     }
 

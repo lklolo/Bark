@@ -33,9 +33,15 @@ public class ItemRegisters {
         return item;
     }
 
-    public static Item Bark(String id) {
+    public static Item bark(String id) {
         Item item = RegisterItem(id, new Item(new Item.Settings().food(ModFoodComponents.MAP.get(id))), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
         ModItems.BARK_LIST.add(item);
+        return item;
+    }
+
+    public static Item essence(String id) {
+        Item item = RegisterItem(id, new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+        ModItems.BARK_ESSENCE_LIST.add(item);
         return item;
     }
 

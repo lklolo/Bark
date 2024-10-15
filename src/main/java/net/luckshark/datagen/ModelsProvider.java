@@ -23,10 +23,12 @@ public class ModelsProvider extends FabricModelProvider {
         for (int i = 0; i < ModItems.BARK_LIST.size(); i++) {
             itemModelGenerator.register(ModItems.BARK_LIST.get(i), Models.GENERATED);
         }
-
         for (int i = 0; i < ModItems.BARK_ARMOR_LIST.size(); i++) {
             itemModelGenerator.registerArmor((ArmorItem) ModItems.BARK_ARMOR_LIST.get(i));
         }
-
+        for (int i = 0; i < ModItems.BARK_ESSENCE_LIST.size(); i++) {
+            itemModelGenerator.register(ModItems.BARK_ESSENCE_LIST.get(i), Models.GENERATED);
+        }
+        itemModelGenerator.register(ModItems.QUILMOR, Models.GENERATED);
     }
 }

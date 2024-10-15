@@ -15,7 +15,7 @@ public class ZHCNLanProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModItemGroups.BARK_GROUP, "Bark");
+        translationBuilder.add(ModItemGroups.BARK_GROUP, "犬吠");
 
         translationBuilder.add(ModItems.OAK_BARK, "橡树皮");
         translationBuilder.add(ModItems.SPRUCE_BARK, "云杉皮");
@@ -86,5 +86,17 @@ public class ZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add("trim_material.bark.warped_bark", "诡异菌质");
         translationBuilder.add("trim_material.bark.bamboo_bark", "竹质");
 
+        translationBuilder.add(ModItems.OAK_BARK_ESSENCE, "橡树精华");
+        translationBuilder.add(ModItems.SPRUCE_BARK_ESSENCE, "云杉精华");
+        translationBuilder.add(ModItems.BIRCH_BARK_ESSENCE, "白桦精华");
+        translationBuilder.add(ModItems.JUNGLE_BARK_ESSENCE, "丛林原木精华");
+        translationBuilder.add(ModItems.ACACIA_BARK_ESSENCE, "金合欢精华");
+        translationBuilder.add(ModItems.DARK_OAK_BARK_ESSENCE, "深色橡树精华");
+        translationBuilder.add(ModItems.MANGROVE_BARK_ESSENCE, "红树精华");
+        translationBuilder.add(ModItems.CHERRY_BARK_ESSENCE, "樱花树精华");
+        translationBuilder.add(ModItems.CRIMSON_BARK_ESSENCE, "绯红菌质精华");
+        translationBuilder.add(ModItems.WARPED_BARK_ESSENCE, "诡异菌质精华");
+        translationBuilder.add(ModItems.BAMBOO_BARK_ESSENCE, "竹精华");
+        translationBuilder.add(ModItems.QUILMOR, "虬杪馥凝");
     }
 }

@@ -23,7 +23,7 @@ import java.util.Map;
 public class TrimMaterialsProvider {
 
     static int count = 0;
-    static final String resourcesRoot = "F:/IDEA/Bark/bark-Fabric-1.21.1/src/main/resources/";
+    static final String resourcesRoot = "F:/IDEA/bark/bark-Fabric-1.21.1/src/main/resources/";
     static final Map<Item, String> colorMap = (new ImmutableMap.Builder<Item, String>())
             .put(ModItems.OAK_BARK, "#836741")
             .put(ModItems.SPRUCE_BARK, "#231006")
@@ -166,7 +166,7 @@ public class TrimMaterialsProvider {
                     "    \"layer0\": \"" + a + "\"\n" +
                     "  }\n" +
                     "}";
-            if (!craeteFile(file1)) {
+            if (!createFile(file1)) {
                 System.out.println("craeteFile error");
                 return;
             }
@@ -211,7 +211,7 @@ public class TrimMaterialsProvider {
                         "    \"layer1\": \"" + getNameSpace(item) + ":trims/items/" + getType(item) + "_trim_" + materialId + "\"\n" +
                         "  }\n" +
                         "}";
-                if (!craeteFile(file2)) {
+                if (!createFile(file2)) {
                     System.out.println("craeteFile error");
                     return;
                 }
@@ -246,7 +246,7 @@ public class TrimMaterialsProvider {
             System.out.println("createPath error");
             return;
         }
-        if (!craeteFile(file)) {
+        if (!createFile(file)) {
             System.out.println("craeteFile error");
             return;
         }
@@ -337,7 +337,7 @@ public class TrimMaterialsProvider {
             System.out.println("createPath error");
             return;
         }
-        if (!craeteFile(file)) {
+        if (!createFile(file)) {
             System.out.println("craeteFile error");
             return;
         }
@@ -390,7 +390,7 @@ public class TrimMaterialsProvider {
                     "  \"ingredient\": \"" + item.toString() + "\",\n" +
                     "  \"item_model_index\": " + indexMap.get(item) + "\n" +
                     "}";
-            if (!craeteFile(file)) {
+            if (!createFile(file)) {
                 System.out.println("craeteFile error");
                 return;
             }
@@ -404,13 +404,12 @@ public class TrimMaterialsProvider {
             fileWriter.write(content);
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("writeFile error" + e.getMessage());
         }
         return false;
     }
 
-    private static Boolean craeteFile(File file) {
+    private static Boolean createFile(File file) {
         if (file.exists()) {
             if (!file.delete()) {
                 return false;
