@@ -21,12 +21,12 @@ public class ItemRegisters {
         INCOMBUSTIBILITY_LIST.add(item);
     }
 
-    public static Item RegisterItem(String id, Item item) {
+    public static Item registerItem(String id, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Bark.MOD_ID, id), item);
     }
 
-    public static Item RegisterItem(String id, Item Item, RegistryKey<ItemGroup> itemGroup, List<Item> list) {
-        Item item = RegisterItem(id, Item);
+    public static Item registerItem(String id, Item Item, RegistryKey<ItemGroup> itemGroup, List<Item> list) {
+        Item item = registerItem(id, Item);
         ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(item));
         ModItemGroups.addItemToGroup(item, list);
         ModItems.idMap.put(item, id);
@@ -34,13 +34,13 @@ public class ItemRegisters {
     }
 
     public static Item bark(String id) {
-        Item item = RegisterItem(id, new Item(new Item.Settings().food(ModFoodComponents.MAP.get(id))), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+        Item item = registerItem(id, new Item(new Item.Settings().food(ModFoodComponents.MAP.get(id))), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
         ModItems.BARK_LIST.add(item);
         return item;
     }
 
     public static Item essence(String id) {
-        Item item = RegisterItem(id, new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+        Item item = registerItem(id, new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
         ModItems.BARK_ESSENCE_LIST.add(item);
         return item;
     }
@@ -49,7 +49,7 @@ public class ItemRegisters {
         Item item;
         switch (type) {
             case 3 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                     new BarkArmorItem(
                             material,
                             ArmorItem.Type.HELMET,
@@ -62,7 +62,7 @@ public class ItemRegisters {
                 ModItems.BARK_HELMET_LIST.add(item);
                 return item;
             case 2 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                     new BarkArmorItem(
                             material,
                             ArmorItem.Type.CHESTPLATE,
@@ -75,7 +75,7 @@ public class ItemRegisters {
                 ModItems.BARK_CHESTPLATE_LIST.add(item);
                 return item;
             case 1 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                     new BarkArmorItem(
                             material,
                             ArmorItem.Type.LEGGINGS,
@@ -88,7 +88,7 @@ public class ItemRegisters {
                 ModItems.BARK_LEGGINGS_LIST.add(item);
                 return item;
             case 0 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                     new BarkArmorItem(
                             material,
                             ArmorItem.Type.BOOTS,
@@ -111,7 +111,7 @@ public class ItemRegisters {
         Item item;
         switch (type) {
             case 3 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                         new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.HELMET,
@@ -124,7 +124,7 @@ public class ItemRegisters {
                 ModItems.BARK_HELMET_LIST.add(item);
                 return item;
             case 2 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                         new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.CHESTPLATE,
@@ -137,7 +137,7 @@ public class ItemRegisters {
                 ModItems.BARK_CHESTPLATE_LIST.add(item);
                 return item;
             case 1 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                         new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.LEGGINGS,
@@ -150,7 +150,7 @@ public class ItemRegisters {
                 ModItems.BARK_LEGGINGS_LIST.add(item);
                 return item;
             case 0 :
-                item = RegisterItem(id,
+                item = registerItem(id,
                         new BarkArmorItem(
                                 material,
                                 ArmorItem.Type.BOOTS,
