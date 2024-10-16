@@ -22,6 +22,7 @@ public class ItemRegisters {
     }
 
     public static Item registerItem(String id, Item item) {
+        ModItems.idMap.put(item, id);
         return Registry.register(Registries.ITEM, Identifier.of(Bark.MOD_ID, id), item);
     }
 
@@ -29,7 +30,6 @@ public class ItemRegisters {
         Item item = registerItem(id, Item);
         ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(item));
         ModItemGroups.addItemToGroup(item, list);
-        ModItems.idMap.put(item, id);
         return item;
     }
 

@@ -89,7 +89,7 @@ public class ModItems {
     public static final Item CRIMSON_BARK_ESSENCE = ItemRegisters.essence("crimson_bark_essence");
     public static final Item WARPED_BARK_ESSENCE = ItemRegisters.essence("warped_bark_essence");
     public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
-    //The word "Quilmor" is created by LKLOLO, it translates from chinese "虬杪馥凝", which means "Fragrant Essence of Twisted Boughs"
+    //"Quilmor" translates from chinese "虬杪馥凝", which means "Fragrant Essence of Twisted Boughs"
 
     public static void registerModItems(){
         ItemRegisters.incombustibility(CRIMSON_BARK);
