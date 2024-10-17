@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-17T21:34:06.1422985	Bark/Model Definitions
+// 1.21.1	2024-10-17T23:04:18.5176103	Bark/Model Definitions
 676099eb8a18e8100e7fbdba359f79c1e6e97586 assets\bark\models\item\cherry_bark_chestplate_emerald_trim.json
 cc243c07ba4268599313c7ac0d7ddaaaccad2f89 assets\bark\models\item\mangrove_bark_chestplate_diamond_trim.json
 4598491105d72e7c3753d308025a67e45b3f460b assets\bark\models\item\oak_bark_chestplate_copper_trim.json
@@ -436,8 +436,8 @@ d2a1859ce3f5246b943cc7475efbf0e88ed3dd83 assets\bark\models\item\crimson_bark_le
 2a5f0c56103d5ef8162fe10c15b0b1891c904088 assets\bark\models\item\bamboo_bark_boots_netherite_trim.json
 f4fa63c29c96349925382eefeaa9a0064bc8ab25 assets\bark\models\item\acacia_bark_helmet_diamond_trim.json
 d794a0d6cd1c5426534e30f6b184171b8efdc241 assets\bark\models\item\acacia_bark_boots_diamond_trim.json
-06f059c06c006b0e35bbceb186c8a932eb14dc13 assets\bark\models\item\oak_bark_boots_diamond_trim.json
 25a3eb97f88c67f1c3b39a7046849723307bece4 assets\bark\models\item\crimson_bark_chestplate_amethyst_trim.json
+06f059c06c006b0e35bbceb186c8a932eb14dc13 assets\bark\models\item\oak_bark_boots_diamond_trim.json
 e316f0ac3de909175d7fb4fcb9feea601a10b468 assets\bark\models\item\cherry_bark_helmet_iron_trim.json
 13db4f3a8921e791e126df82d009e8a87df2f794 assets\bark\models\item\bamboo_bark_chestplate_gold_trim.json
 57b279c1c74c11563dc604a8d2d03d1b576b4a0a assets\bark\models\item\mangrove_bark_leggings_iron_trim.json
