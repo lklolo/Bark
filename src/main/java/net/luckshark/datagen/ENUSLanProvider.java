@@ -2,6 +2,7 @@ package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.luckshark.block.ModBlocks;
 import net.luckshark.item.ModItemGroups;
 import net.luckshark.item.ModItems;
 import net.minecraft.registry.RegistryWrapper;
@@ -98,5 +99,8 @@ public class ENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.WARPED_BARK_ESSENCE, "Warped Essence");
         translationBuilder.add(ModItems.BAMBOO_BARK_ESSENCE, "Bamboo Essence");
         translationBuilder.add(ModItems.QUILMOR, "Quilmor");
+
+        translationBuilder.add(ModBlocks.YAN_CRAFT, "Yan");
+        translationBuilder.add("container.yan_craft", "Yan Craft");
     }
 }

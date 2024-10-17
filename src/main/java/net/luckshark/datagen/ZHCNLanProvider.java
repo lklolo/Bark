@@ -2,6 +2,7 @@ package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.luckshark.block.ModBlocks;
 import net.luckshark.item.ModItemGroups;
 import net.luckshark.item.ModItems;
 import net.minecraft.registry.RegistryWrapper;
@@ -98,5 +99,8 @@ public class ZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.WARPED_BARK_ESSENCE, "诡异菌质精华");
         translationBuilder.add(ModItems.BAMBOO_BARK_ESSENCE, "竹精华");
         translationBuilder.add(ModItems.QUILMOR, "虬杪馥凝");
+
+        translationBuilder.add(ModBlocks.YAN_CRAFT, "砚");
+        translationBuilder.add("container.yan_craft", "砚");
     }
 }

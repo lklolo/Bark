@@ -3,6 +3,7 @@ package net.luckshark.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.luckshark.item.ModItems;
+import net.luckshark.tag.ModItemTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -21,6 +22,8 @@ public class ItemTagsProvider extends FabricTagProvider.ItemTagProvider{
         for (int i = 0; i < ModItems.BARK_LIST.size(); i++) {
             getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.BARK_LIST.get(i));
         }
+
+        getOrCreateTagBuilder(ModItemTags.YAN_CRAFT_CATALYST).add(ModItems.QUILMOR);
     }
 
 }

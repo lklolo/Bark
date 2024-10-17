@@ -6,6 +6,7 @@ import net.luckshark.block.ModBlocks;
 import net.luckshark.block.entity.ModBlockEntities;
 import net.luckshark.item.ModItemGroups;
 import net.luckshark.item.ModItems;
+import net.luckshark.recipe.ModRecipeTypes;
 import net.luckshark.screen.ModScreenHandlers;
 import net.luckshark.tag.ModBlockTags;
 import net.luckshark.tag.ModItemTags;
@@ -23,6 +24,7 @@ public class Bark implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+		ModRecipeTypes.registerRecipeTypes();
 		ModItemGroups.registerModItemGroups();
 		ModItemTags.registerModItemTags();
 		ModBlockTags.registerModBlockTags();

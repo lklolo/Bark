@@ -1,7 +1,9 @@
 package net.luckshark.item;
 
+import net.luckshark.item.custom.Quilmor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +33,18 @@ public class ModItems {
     public static final Item BAMBOO_BARK = ItemRegisters.bark("bamboo_bark");
     public static final Item CRIMSON_BARK = ItemRegisters.bark("crimson_bark");
     public static final Item WARPED_BARK = ItemRegisters.bark("warped_bark");
+
+    public static final Item OAK_BARK_ESSENCE = ItemRegisters.essence("oak_bark_essence");
+    public static final Item SPRUCE_BARK_ESSENCE = ItemRegisters.essence("spruce_bark_essence");
+    public static final Item BIRCH_BARK_ESSENCE = ItemRegisters.essence("birch_bark_essence");
+    public static final Item JUNGLE_BARK_ESSENCE = ItemRegisters.essence("jungle_bark_essence");
+    public static final Item ACACIA_BARK_ESSENCE = ItemRegisters.essence("acacia_bark_essence");
+    public static final Item DARK_OAK_BARK_ESSENCE = ItemRegisters.essence("dark_oak_bark_essence");
+    public static final Item MANGROVE_BARK_ESSENCE = ItemRegisters.essence("mangrove_bark_essence");
+    public static final Item CHERRY_BARK_ESSENCE = ItemRegisters.essence("cherry_bark_essence");
+    public static final Item BAMBOO_BARK_ESSENCE = ItemRegisters.essence("bamboo_bark_essence");
+    public static final Item CRIMSON_BARK_ESSENCE = ItemRegisters.essence("crimson_bark_essence");
+    public static final Item WARPED_BARK_ESSENCE = ItemRegisters.essence("warped_bark_essence");
 
     public static final Item OAK_BARK_HELMET = ItemRegisters.barkArmor("oak_bark_helmet", ModArmorMaterials.OAK_BARK, 6, 3);
     public static final Item SPRUCE_BARK_HELMET = ItemRegisters.barkArmor("spruce_bark_helmet", ModArmorMaterials.SPRUCE_BARK, 6, 3);
@@ -77,18 +91,7 @@ public class ModItems {
     public static final Item CRIMSON_BARK_BOOTS = ItemRegisters.barkArmor("crimson_bark_boots", ModArmorMaterials.CRIMSON_BARK, 5, 0, true);
     public static final Item WARPED_BARK_BOOTS = ItemRegisters.barkArmor("warped_bark_boots", ModArmorMaterials.WARPED_BARK, 5, 0, true);
 
-    public static final Item OAK_BARK_ESSENCE = ItemRegisters.essence("oak_bark_essence");
-    public static final Item SPRUCE_BARK_ESSENCE = ItemRegisters.essence("spruce_bark_essence");
-    public static final Item BIRCH_BARK_ESSENCE = ItemRegisters.essence("birch_bark_essence");
-    public static final Item JUNGLE_BARK_ESSENCE = ItemRegisters.essence("jungle_bark_essence");
-    public static final Item ACACIA_BARK_ESSENCE = ItemRegisters.essence("acacia_bark_essence");
-    public static final Item DARK_OAK_BARK_ESSENCE = ItemRegisters.essence("dark_oak_bark_essence");
-    public static final Item MANGROVE_BARK_ESSENCE = ItemRegisters.essence("mangrove_bark_essence");
-    public static final Item CHERRY_BARK_ESSENCE = ItemRegisters.essence("cherry_bark_essence");
-    public static final Item BAMBOO_BARK_ESSENCE = ItemRegisters.essence("bamboo_bark_essence");
-    public static final Item CRIMSON_BARK_ESSENCE = ItemRegisters.essence("crimson_bark_essence");
-    public static final Item WARPED_BARK_ESSENCE = ItemRegisters.essence("warped_bark_essence");
-    public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings()), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
+    public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxDamage(16)), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
     //"Quilmor" translates from chinese "虬杪馥凝", which means "Fragrant Essence of Twisted Boughs"
 
     public static void registerModItems(){

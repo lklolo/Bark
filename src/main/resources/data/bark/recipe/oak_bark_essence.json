@@ -1,0 +1,11 @@
+{
+  "type": "bark:yan_craft",
+  "ingredients": [
+    {
+      "item": "bark:oak_bark"
+    }
+  ],
+  "output": {
+    "id": "bark:oak_bark_essence"
+  }
+}

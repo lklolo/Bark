@@ -1,4 +1,4 @@
-package net.luckshark.datagen;
+package net.luckshark.datagen.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonArray;
@@ -80,7 +80,7 @@ public class TrimMaterialsProvider {
     };
 
 
-    public static void main(List<Item> list) {
+    public static void generate(List<Item> list) {
         trimMaterials(list);
         armorTrims(list);
         blocks(list);

@@ -3,6 +3,8 @@ package net.luckshark;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.luckshark.datagen.*;
+import net.luckshark.datagen.custom.TrimMaterialsProvider;
+import net.luckshark.datagen.custom.YanCraftRecipesProvider;
 import net.luckshark.item.ModItems;
 
 public class BarkDataGenerator implements DataGeneratorEntrypoint {
@@ -17,7 +19,8 @@ public class BarkDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(RecipesProvider::new);
 		pack.addProvider(ENUSLanProvider::new);
 		pack.addProvider(ZHCNLanProvider::new);
-		TrimMaterialsProvider.main(ModItems.BARK_LIST);
+		TrimMaterialsProvider.generate(ModItems.BARK_LIST);
+		YanCraftRecipesProvider.generate();
 	}
 
 }
