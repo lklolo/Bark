@@ -29,6 +29,7 @@ public class YanCraftScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 80, 11));
         this.addSlot(new Slot(inventory, 1, 80, 59));
+        this.addSlot(new Slot(inventory, 2, 60, 34));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -36,7 +37,7 @@ public class YanCraftScreenHandler extends ScreenHandler {
         addProperties(propertyDelegate);
     }
     public YanCraftScreenHandler(int syncId, PlayerInventory playerInventory, YanCraftData data) {
-        this(syncId, playerInventory, new ArrayPropertyDelegate(2), playerInventory.player.getWorld().getBlockEntity(data.pos()));
+        this(syncId, playerInventory, new ArrayPropertyDelegate(3), playerInventory.player.getWorld().getBlockEntity(data.pos()));
     }
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {

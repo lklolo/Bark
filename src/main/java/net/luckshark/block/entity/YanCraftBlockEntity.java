@@ -27,7 +27,7 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private final int INPUT_SLOT = 0;
     private final int OUTPUT_SLOT = 1;
-    private final int INPUT_SLOT2 = 1;
+    private final int INPUT_SLOT2 = 2;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -55,7 +55,7 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
             @Override
             public int size() {
-                return 2;
+                return 3;
             }
         };
     }
@@ -102,21 +102,20 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
         if (world.isClient()) {
             return;
         }
-        if (isOutputSlotAvailable()) {
-            if (hasRecipe()) {
-                increaseCraftProgress();
-                markDirty(world, pos, state);
-
-                if (hasCraftingFinished()) {
-                    craftItem();
-                    resetProgress();
-                }
-            } else {
-                resetProgress();
-            }
-        } else {
+        if (!isOutputSlotAvailable()) {
             resetProgress();
             markDirty(world, pos, state);
+            return;
+        }
+        if (!hasRecipe()) {
+            resetProgress();
+            return;
+        }
+        increaseCraftProgress();
+        markDirty(world, pos, state);
+        if (hasCraftingFinished()) {
+            craftItem();
+            resetProgress();
         }
     }
     private void resetProgress() {
@@ -139,7 +138,8 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     private boolean hasRecipe() {
         ItemStack result = new ItemStack(ModItems.OAK_BARK_ESSENCE);
         boolean hasInput = getStack(INPUT_SLOT).getItem() == ModItems.OAK_BARK;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertIntoOutputSlot(result.getItem());
+        boolean hasInput2 = getStack(INPUT_SLOT2).getItem() == ModItems.QUILMOR;
+        return hasInput && hasInput2 && canInsertAmountIntoOutputSlot(result) && canInsertIntoOutputSlot(result.getItem());
     }
 
     private boolean canInsertIntoOutputSlot(Item item) {
