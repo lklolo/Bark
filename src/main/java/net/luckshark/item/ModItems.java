@@ -1,6 +1,5 @@
 package net.luckshark.item;
 
-import net.luckshark.item.custom.Quilmor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.util.Rarity;
