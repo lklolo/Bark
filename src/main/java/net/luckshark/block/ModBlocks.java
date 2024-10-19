@@ -14,7 +14,7 @@ public class ModBlocks {
 
     public static Map<Block, String> idMap = new HashMap<>();
 
-    public static final Block YAN_CRAFT = BlockRegisters.registerBlock("yan_craft", new YanCraft(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)), ItemGroups.OPERATOR, ModItemGroups.BARK_GROUP_LIST);
+    public static final Block YAN_CRAFT = BlockRegisters.registerBlock("yan_craft", new YanCraft(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)), ItemGroups.FUNCTIONAL, ModItemGroups.BARK_GROUP_LIST);
     public static void registerModBlocks() {
     }
 }

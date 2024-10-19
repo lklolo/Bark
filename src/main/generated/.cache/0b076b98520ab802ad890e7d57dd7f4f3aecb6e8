@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-20T00:32:31.2874982	Bark/Recipes
+// 1.21.1	2024-10-20T01:55:00.947386	Bark/Recipes
 4555eadcbf016ec22dc682cd35b43d663dd31fa2 data\bark\recipe\cherry_bark_chestplate.json
 d6988fe449983c02840337edc05f4e097910af29 data\bark\recipe\spruce_bark_chestplate.json
 34b65bb35418ccaa12b6e8bf27a952de7c5012ff data\bark\advancement\recipes\combat\cherry_bark_helmet.json
@@ -19,6 +19,7 @@ e99724dd4f84480068a6759abe5dad1ebde1d254 data\bark\advancement\recipes\combat\da
 56cef933dbf56db2a7ea2a4c9b5492a2d6ab68ad data\bark\advancement\recipes\combat\mangrove_bark_boots.json
 1d067320e4d8ef8464e5834da58492d153f5ff1a data\bark\advancement\recipes\combat\jungle_bark_boots.json
 19057307d8beefa052620c0b2001d9d843cde39b data\bark\advancement\recipes\combat\cherry_bark_leggings.json
+a96dc43026ae37b7f13a581c1514c118e1ca23ef data\bark\recipe\yan_craft.json
 334125d5e5cf45220f7a22dbc2c1e3b76e4d8b30 data\bark\advancement\recipes\combat\mangrove_bark_chestplate.json
 abf4316066529041b9cf5d4359b60eaa3fc602c5 data\bark\recipe\crimson_bark_leggings.json
 0127c5232ea8da9c0bb722b1f1c79d27443c39c5 data\bark\recipe\mangrove_bark_chestplate.json
@@ -83,6 +84,7 @@ ea25b7bf495339807856a704e604dd702bc5929e data\bark\advancement\recipes\combat\oa
 bc823870e0188d8da62e4fbbc55ca362bd9d3edc data\bark\recipe\jungle_bark_helmet.json
 78324d1b656ff767bb628343f28cab489e52547b data\bark\advancement\recipes\combat\jungle_bark_helmet.json
 5ef0de6e05838aa6b8999e49294f4fcefff86b50 data\bark\recipe\mangrove_bark_leggings.json
+beca381c06f91003fa2d0ab2810fc610d4ba0de7 data\bark\advancement\recipes\combat\yan_craft.json
 a1361efee5d82c4758909c3c267ad14b726f4070 data\bark\advancement\recipes\combat\acacia_bark_helmet.json
 761b1c070560670dec22fca50fdf77f6a2563afd data\bark\advancement\recipes\combat\spruce_bark_helmet.json
 3f399835ed21a3a507a765cbef0ca4918a795e7e data\bark\recipe\warped_bark_chestplate.json

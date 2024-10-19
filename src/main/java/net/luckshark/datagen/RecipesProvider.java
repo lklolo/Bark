@@ -3,11 +3,13 @@ package net.luckshark.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.luckshark.Bark;
+import net.luckshark.block.ModBlocks;
 import net.luckshark.item.ModItems;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -72,6 +74,18 @@ public class RecipesProvider extends FabricRecipeProvider {
         boots(ModItems.BAMBOO_BARK, ModItems.BAMBOO_BARK_BOOTS);
         boots(ModItems.CRIMSON_BARK, ModItems.CRIMSON_BARK_BOOTS);
         boots(ModItems.WARPED_BARK, ModItems.WARPED_BARK_BOOTS);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModBlocks.YAN_CRAFT, 1)
+                .pattern("BCB")
+                .pattern("AAA")
+                .pattern("AAA")
+                .input('A', Items.COBBLESTONE)
+                .input('B', Items.FLINT)
+                .input('C', Items.STONE_PRESSURE_PLATE)
+                .criterion("has_item", RecipeProvider.conditionsFromItem(Items.COBBLESTONE))
+                .criterion("has_item", RecipeProvider.conditionsFromItem(Items.FLINT))
+                .criterion("has_item", RecipeProvider.conditionsFromItem(Items.STONE_PRESSURE_PLATE))
+                .offerTo(exporter, Identifier.of(Bark.MOD_ID, "yan_craft"));
     }
 
     private void helmet(Item materialsItem, Item resultItem) {

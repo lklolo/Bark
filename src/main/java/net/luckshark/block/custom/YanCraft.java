@@ -11,18 +11,29 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.stream.Stream;
+
 public class YanCraft extends BlockWithEntity implements BlockEntityProvider {
 
-    public  static final MapCodec<YanCraft> CODEC = createCodec(YanCraft::new);
+    public static final VoxelShape SHAPE = Stream.of(
+            Block.createCuboidShape(0, 0, 0, 16, 14, 16),
+            Block.createCuboidShape(0, 14, 0, 1, 16, 15),
+            Block.createCuboidShape(15, 14, 1, 16, 16, 16),
+            Block.createCuboidShape(1, 14, 0, 16, 16, 1),
+            Block.createCuboidShape(0, 14, 15, 15, 16, 16),
+            Block.createCuboidShape(3, 14, 3, 13, 15, 13)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+    public  static final MapCodec<YanCraft> CODEC = createCodec(YanCraft::new);
 
     public YanCraft(Settings settings) {
         super(settings);

@@ -3,7 +3,6 @@ package net.luckshark.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.luckshark.block.ModBlocks;
-import net.luckshark.block.custom.YanCraft;
 import net.luckshark.item.ModItems;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
@@ -17,7 +16,7 @@ public class ModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.YAN_CRAFT);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.YAN_CRAFT);
     }
 
     @Override
