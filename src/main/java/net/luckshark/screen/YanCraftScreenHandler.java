@@ -28,8 +28,8 @@ public class YanCraftScreenHandler extends ScreenHandler {
         this.blockEntity = (YanCraftBlockEntity) blockEntity;
 
         this.addSlot(new Slot(inventory, 0, 80, 11));
-        this.addSlot(new Slot(inventory, 1, 80, 59));
-        this.addSlot(new Slot(inventory, 2, 61, 35));
+        this.addSlot(new Slot(inventory, 2, 80, 59));
+        this.addSlot(new Slot(inventory, 1, 61, 35));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

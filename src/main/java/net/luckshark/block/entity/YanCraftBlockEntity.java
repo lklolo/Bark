@@ -3,8 +3,8 @@ package net.luckshark.block.entity;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.luckshark.data.YanCraftData;
 import net.luckshark.recipe.YanCraftRecipe;
+import net.luckshark.recipe.input.SimpleTwoStackRecipeInput;
 import net.luckshark.screen.YanCraftScreenHandler;
-import net.luckshark.tag.ModItemTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -32,8 +31,8 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private final int INPUT_SLOT = 0;
-    private final int OUTPUT_SLOT = 1;
-    private final int INPUT_SLOT2 = 2;
+    private final int OUTPUT_SLOT = 2;
+    private final int INPUT_SLOT2 = 1;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -129,16 +128,11 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private void craftItem() {
-        /*
-        ItemStack result = new ItemStack(ModItems.OAK_BARK_ESSENCE);
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount() + result.getCount()));
-         */
         Optional<RecipeEntry<YanCraftRecipe>> recipe = getCurrentRecipe();
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(),
                 getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
 
         this.removeStack(INPUT_SLOT, 1);
-        //this.getStack(INPUT_SLOT2).setDamage(getStack(INPUT_SLOT2).getDamage() + 1);
         this.makeDamage(getStack(INPUT_SLOT2));
     }
     private void makeDamage(ItemStack stack) {
@@ -151,12 +145,24 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private Optional<RecipeEntry<YanCraftRecipe>> getCurrentRecipe() {
         SimpleInventory inventory = new SimpleInventory(this.size());
+
         for (int i = 0; i < this.size(); i++) {
             inventory.setStack(i, this.getStack(i));
         }
-        return getWorld().getRecipeManager().getFirstMatch(YanCraftRecipe.Type.INSTANCE,
-                new SingleStackRecipeInput(inventory.getStack(INPUT_SLOT)), getWorld());
+
+        SimpleTwoStackRecipeInput recipeInput = new SimpleTwoStackRecipeInput(
+                inventory.getStack(INPUT_SLOT),
+                inventory.getStack(INPUT_SLOT2)
+        );
+
+        Optional<RecipeEntry<YanCraftRecipe>> optional = getWorld().getRecipeManager().getFirstMatch(
+                YanCraftRecipe.Type.INSTANCE,
+                recipeInput,
+                getWorld());
+
+        return optional;
     }
+
 
     private boolean hasCraftingFinished() {
         return this.progress >= this.maxProgress;
@@ -167,17 +173,19 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private boolean hasRecipe() {
-        /*
-        ItemStack result = new ItemStack(ModItems.OAK_BARK_ESSENCE);
-        boolean hasInput = getStack(INPUT_SLOT).getItem() == ModItems.OAK_BARK;
-        boolean hasCatalyst = getStack(INPUT_SLOT2).getItem() == ModItems.QUILMOR;
-        return hasInput && hasCatalyst && canInsertAmountIntoOutputSlot(result) && canInsertIntoOutputSlot(result.getItem());
-        */
-        boolean hasCatalyst = getStack(INPUT_SLOT2).isIn(ModItemTags.YAN_CRAFT_CATALYST);
         Optional<RecipeEntry<YanCraftRecipe>> recipe = getCurrentRecipe();
-        return hasCatalyst && recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null)) &&
-                canInsertIntoOutputSlot(recipe.get().value().getResult(null).getItem());
+        if (!recipe.isPresent()) {
+            return false;
+        }
+        if (!canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null))) {
+            return false;
+        }
+        if (!canInsertIntoOutputSlot(recipe.get().value().getResult(null).getItem())) {
+            return false;
+        }
+        return true;
     }
+
 
     private boolean canInsertIntoOutputSlot(Item item) {
         return this.getStack(OUTPUT_SLOT).isEmpty() ||

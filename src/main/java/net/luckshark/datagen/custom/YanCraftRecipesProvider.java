@@ -11,6 +11,8 @@ import net.minecraft.item.Item;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class YanCraftRecipesProvider {
 
@@ -18,13 +20,13 @@ public class YanCraftRecipesProvider {
     static final String resourcesRoot = "F:/IDEA/Bark/bark-Fabric-1.21.1/src/main/resources/";
     public static void generate(){
         for (int i = 0; i < ModItems.BARK_LIST.size(); i++) {
-            genRecipe(ModItems.BARK_LIST.get(i), ModItems.BARK_ESSENCE_LIST.get(i));
+            genRecipe(ModItems.BARK_LIST.get(i), ModItems.QUILMOR, ModItems.BARK_ESSENCE_LIST.get(i));
         }
 
         System.out.println("YanCraftRecipesProvider: A total of " + count + " files are generated");
     }
 
-    private static void genRecipe(Item input, Item output) {
+    private static void genRecipe(Item input1, Item input2, Item output) {
         if (!createPath(resourcesRoot + "data/" + Bark.MOD_ID + "/recipe/")) {
             System.out.println("createPath error");
             return;
@@ -35,34 +37,38 @@ public class YanCraftRecipesProvider {
             System.out.println("craeteFile error");
             return;
         }
-        if (Boolean.FALSE.equals(writeFile(file, input, output))) {
+        if (Boolean.FALSE.equals(writeFile(file, input1, input2, output))) {
             System.out.println("writeFile error");
         }
     }
-    private static Boolean writeFile(File file, Item input, Item output) {
+    private static Boolean writeFile(File file, Item input_1, Item input_2, Item out_put) {
 
         String type = Bark.MOD_ID + ':' + "yan_craft";
-        String ingredientItem = input.toString();
-        String outputId = output.toString();
+        String input1Item = input_1.toString();
+        String input2Item = input_2.toString();
+        String outputId = out_put.toString();
         String filePath = file.getPath();
+
+        Map<String, Object> barkCraft = new HashMap<>();
+        barkCraft.put("type", type);
+
+        Map<String, String> input1 = new HashMap<>();
+        input1.put("item", input1Item);
+
+        Map<String, String> input2 = new HashMap<>();
+        input2.put("item", input2Item);
+
+        Map<String, String> output = new HashMap<>();
+        output.put("id", outputId);
+
+        barkCraft.put("input1", input1);
+        barkCraft.put("input2", input2);
+        barkCraft.put("output", output);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("type", type);
-
-        JsonArray ingredientsArray = new JsonArray();
-        JsonObject ingredientObject = new JsonObject();
-        ingredientObject.addProperty("item", ingredientItem);
-        ingredientsArray.add(ingredientObject);
-        jsonObject.add("ingredients", ingredientsArray);
-
-        JsonObject outputObject = new JsonObject();
-        outputObject.addProperty("id", outputId);
-        jsonObject.add("output", outputObject);
-
         try (FileWriter writer = new FileWriter(filePath)) {
-            gson.toJson(jsonObject, writer);
+            gson.toJson(barkCraft, writer);
         } catch (IOException ignored) {
             return false;
         }

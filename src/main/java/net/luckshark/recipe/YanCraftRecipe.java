@@ -1,8 +1,8 @@
 package net.luckshark.recipe;
 
-import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.luckshark.recipe.input.SimpleTwoStackRecipeInput;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -10,41 +10,42 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-import java.util.List;
+public class YanCraftRecipe implements Recipe<SimpleTwoStackRecipeInput> {
 
-public class YanCraftRecipe implements Recipe<SingleStackRecipeInput> {
-
+    private final Ingredient input1;
+    private final Ingredient input2;
     private final ItemStack output;
-    private final List<Ingredient> recipeItems;
 
-    public YanCraftRecipe(List<Ingredient> recipeItems, ItemStack output) {
+    public YanCraftRecipe(Ingredient input1, Ingredient input2, ItemStack output) {
+        this.input1 = input1;
+        this.input2 = input2;
         this.output = output;
-        this.recipeItems = recipeItems;
+    }
+
+    public Ingredient getIngredients(int index) {
+        return switch (index) {
+            case 0:
+                yield input1;
+            case 1:
+                yield input2;
+            default:
+                throw new IllegalArgumentException("Invalid index: " + index);
+        };
     }
 
     @Override
-    public DefaultedList<Ingredient> getIngredients() {
-        DefaultedList<Ingredient> list = DefaultedList.ofSize(this.recipeItems.size());
-        list.addAll(recipeItems);
-        return list;
-    }
-
-    @Override
-    public boolean matches(SingleStackRecipeInput input, World world) {
-        if (world.isClient()){
+    public boolean matches(SimpleTwoStackRecipeInput input, World world) {
+        if (world.isClient()) {
             return false;
         }
-        return recipeItems.get(0).test(input.item());
+        return input1.test(input.getStackInSlot(0)) && input2.test(input.getStackInSlot(1));
     }
 
     @Override
-    public ItemStack craft(SingleStackRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack craft(SimpleTwoStackRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
         return this.output.copy();
     }
 
@@ -68,7 +69,7 @@ public class YanCraftRecipe implements Recipe<SingleStackRecipeInput> {
         return Type.INSTANCE;
     }
 
-    public static class  Type implements RecipeType<YanCraftRecipe> {
+    public static class Type implements RecipeType<YanCraftRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "yan_craft";
     }
@@ -79,17 +80,9 @@ public class YanCraftRecipe implements Recipe<SingleStackRecipeInput> {
         public static final String ID = "yan_craft";
 
         public static final MapCodec<YanCraftRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-                (Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients")).flatXmap(ingredients -> {
-                    Ingredient[] ingredients1 = (Ingredient[]) ingredients.stream().filter(ingredient -> !ingredient.isEmpty()).toArray(Ingredient[]::new);
-                    if (ingredients1.length == 0) {
-                        return DataResult.error(() -> "No ingredients");
-                    }
-                    if (ingredients1.length > 9) {
-                        return DataResult.error(() -> "Too many ingredients");
-                    }
-                    return DataResult.success(DefaultedList.copyOf(Ingredient.EMPTY, ingredients1));
-                }, DataResult::success).forGetter(recipe -> recipe.getIngredients()),
-                (ItemStack.VALIDATED_CODEC.fieldOf("output")).forGetter(recipe -> recipe.output)
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input1").forGetter(recipe -> recipe.getIngredients(0)),
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input2").forGetter(recipe -> recipe.getIngredients(1)),
+                ItemStack.VALIDATED_CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
         ).apply(instance, YanCraftRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, YanCraftRecipe> PACKET_CODEC = PacketCodec.ofStatic(
@@ -97,22 +90,17 @@ public class YanCraftRecipe implements Recipe<SingleStackRecipeInput> {
         );
 
         private static YanCraftRecipe read(RegistryByteBuf registryByteBuf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(registryByteBuf.readInt(),Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.PACKET_CODEC.decode(registryByteBuf));
-            }
+            Ingredient input1 = Ingredient.PACKET_CODEC.decode(registryByteBuf);
+            Ingredient input2 = Ingredient.PACKET_CODEC.decode(registryByteBuf);
             ItemStack output = ItemStack.PACKET_CODEC.decode(registryByteBuf);
-            return new YanCraftRecipe(inputs, output);
+            return new YanCraftRecipe(input1, input2, output);
         }
 
-        private static void write(RegistryByteBuf registryByteBuf, YanCraftRecipe yanCraftRecipe) {
-            registryByteBuf.writeInt(yanCraftRecipe.getIngredients().size());
-
-            for (Ingredient ingredient : yanCraftRecipe.getIngredients()) {
-                Ingredient.PACKET_CODEC.encode(registryByteBuf, ingredient);
-            }
-            ItemStack.PACKET_CODEC.encode(registryByteBuf, yanCraftRecipe.getResult(null));
+        // 写入配方
+        private static void write(RegistryByteBuf registryByteBuf, YanCraftRecipe recipe) {
+            Ingredient.PACKET_CODEC.encode(registryByteBuf, recipe.getIngredients(0));  // 写入第一个输入
+            Ingredient.PACKET_CODEC.encode(registryByteBuf, recipe.getIngredients(1));  // 写入第二个输入
+            ItemStack.PACKET_CODEC.encode(registryByteBuf, recipe.getResult(null)); // 写入输出
         }
 
         @Override

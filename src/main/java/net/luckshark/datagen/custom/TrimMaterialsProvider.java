@@ -87,7 +87,7 @@ public class TrimMaterialsProvider {
         models(ModItems.BARK_ARMOR_LIST, list);
         models(vanillaArmorList, list);
 
-        System.out.println("A total of " + count + " files are generated");
+        System.out.println("TrimMaterialsProvider: A total of " + count + " files are generated");
     }
 
     private static void models(List<Item> armorList, List<Item> materialsList) {
