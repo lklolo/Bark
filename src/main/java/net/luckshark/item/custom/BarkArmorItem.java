@@ -61,17 +61,17 @@ public class BarkArmorItem extends ArmorItem {
 
     private static final Map<String, ArmorMaterial> TRIM_MATERIALS_MAP =
             (new ImmutableMap.Builder<String, ArmorMaterial>())
-                    .put("oak_bark", ModArmorMaterials.OAK_BARK.value())
-                    .put("spruce_bark", ModArmorMaterials.SPRUCE_BARK.value())
-                    .put("birch_bark", ModArmorMaterials.BIRCH_BARK.value())
-                    .put("jungle_bark", ModArmorMaterials.JUNGLE_BARK.value())
-                    .put("acacia_bark", ModArmorMaterials.ACACIA_BARK.value())
-                    .put("dark_oak_bark", ModArmorMaterials.DARK_OAK_BARK.value())
-                    .put("mangrove_bark", ModArmorMaterials.MANGROVE_BARK.value())
-                    .put("cherry_bark", ModArmorMaterials.CHERRY_BARK.value())
-                    .put("crimson_bark", ModArmorMaterials.CRIMSON_BARK.value())
-                    .put("warped_bark", ModArmorMaterials.WARPED_BARK.value())
-                    .put("bamboo_bark", ModArmorMaterials.BAMBOO_BARK.value())
+                    .put("oak_bark_essence", ModArmorMaterials.OAK_BARK.value())
+                    .put("spruce_bark_essence", ModArmorMaterials.SPRUCE_BARK.value())
+                    .put("birch_bark_essence", ModArmorMaterials.BIRCH_BARK.value())
+                    .put("jungle_bark_essence", ModArmorMaterials.JUNGLE_BARK.value())
+                    .put("acacia_bark_essence", ModArmorMaterials.ACACIA_BARK.value())
+                    .put("dark_oak_bark_essence", ModArmorMaterials.DARK_OAK_BARK.value())
+                    .put("mangrove_bark_essence", ModArmorMaterials.MANGROVE_BARK.value())
+                    .put("cherry_bark_essence", ModArmorMaterials.CHERRY_BARK.value())
+                    .put("crimson_bark_essence", ModArmorMaterials.CRIMSON_BARK.value())
+                    .put("warped_bark_essence", ModArmorMaterials.WARPED_BARK.value())
+                    .put("bamboo_bark_essence", ModArmorMaterials.BAMBOO_BARK.value())
                     .build();
 
     public BarkArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {

@@ -25,30 +25,30 @@ public class TrimMaterialsProvider {
     static int count = 0;
     static final String resourcesRoot = "F:/IDEA/bark/bark-Fabric-1.21.1/src/main/resources/";
     static final Map<Item, String> colorMap = (new ImmutableMap.Builder<Item, String>())
-            .put(ModItems.OAK_BARK, "#836741")
-            .put(ModItems.SPRUCE_BARK, "#231006")
-            .put(ModItems.BIRCH_BARK, "#bebeae")
-            .put(ModItems.JUNGLE_BARK, "#635820")
-            .put(ModItems.ACACIA_BARK, "#696259")
-            .put(ModItems.DARK_OAK_BARK, "#1c150b")
-            .put(ModItems.MANGROVE_BARK, "#584526")
-            .put(ModItems.CHERRY_BARK, "#301d29")
-            .put(ModItems.CRIMSON_BARK, "#7b0000")
-            .put(ModItems.WARPED_BARK, "#16615b")
-            .put(ModItems.BAMBOO_BARK, "#828f38")
+            .put(ModItems.OAK_BARK_ESSENCE, "#836741")
+            .put(ModItems.SPRUCE_BARK_ESSENCE, "#231006")
+            .put(ModItems.BIRCH_BARK_ESSENCE, "#bebeae")
+            .put(ModItems.JUNGLE_BARK_ESSENCE, "#635820")
+            .put(ModItems.ACACIA_BARK_ESSENCE, "#696259")
+            .put(ModItems.DARK_OAK_BARK_ESSENCE, "#1c150b")
+            .put(ModItems.MANGROVE_BARK_ESSENCE, "#584526")
+            .put(ModItems.CHERRY_BARK_ESSENCE, "#301d29")
+            .put(ModItems.CRIMSON_BARK_ESSENCE, "#7b0000")
+            .put(ModItems.WARPED_BARK_ESSENCE, "#16615b")
+            .put(ModItems.BAMBOO_BARK_ESSENCE, "#828f38")
             .build();
     static final Map<Item, Float> indexMap = (new ImmutableMap.Builder<Item, Float>())
-            .put(ModItems.OAK_BARK, 0.11f)
-            .put(ModItems.SPRUCE_BARK, 0.12f)
-            .put(ModItems.BIRCH_BARK, 0.13f)
-            .put(ModItems.JUNGLE_BARK, 0.14f)
-            .put(ModItems.ACACIA_BARK, 0.15f)
-            .put(ModItems.DARK_OAK_BARK, 0.16f)
-            .put(ModItems.MANGROVE_BARK, 0.17f)
-            .put(ModItems.CHERRY_BARK, 0.18f)
-            .put(ModItems.CRIMSON_BARK, 0.19f)
-            .put(ModItems.WARPED_BARK, 0.21f)
-            .put(ModItems.BAMBOO_BARK, 0.22f)
+            .put(ModItems.OAK_BARK_ESSENCE, 0.11f)
+            .put(ModItems.SPRUCE_BARK_ESSENCE, 0.12f)
+            .put(ModItems.BIRCH_BARK_ESSENCE, 0.13f)
+            .put(ModItems.JUNGLE_BARK_ESSENCE, 0.14f)
+            .put(ModItems.ACACIA_BARK_ESSENCE, 0.15f)
+            .put(ModItems.DARK_OAK_BARK_ESSENCE, 0.16f)
+            .put(ModItems.MANGROVE_BARK_ESSENCE, 0.17f)
+            .put(ModItems.CHERRY_BARK_ESSENCE, 0.18f)
+            .put(ModItems.CRIMSON_BARK_ESSENCE, 0.19f)
+            .put(ModItems.WARPED_BARK_ESSENCE, 0.21f)
+            .put(ModItems.BAMBOO_BARK_ESSENCE, 0.22f)
             .build();
     static final List<Item> vanillaArmorList = new ArrayList<>() {
         {
@@ -79,6 +79,8 @@ public class TrimMaterialsProvider {
         }
     };
 
+    //设置为true时，将尝试删除此类目前所有将会生成的文件。一般在此类已经生成文件后，清理这些文件使用。
+    private static final boolean deleteModel = false;
 
     public static void generate(List<Item> list) {
         trimMaterials(list);
@@ -166,14 +168,15 @@ public class TrimMaterialsProvider {
                     "    \"layer0\": \"" + a + "\"\n" +
                     "  }\n" +
                     "}";
-            if (!createFile(file1)) {
+            if (createFile(file1)) {
+                if (!writeFile(content1, file1)) {
+                    System.out.println("writeFile error");
+                    return;
+                }
+            }else {
                 System.out.println("craeteFile error");
-                return;
             }
-            if (!writeFile(content1, file1)) {
-                System.out.println("writeFile error");
-                return;
-            }
+
             for (Item materialItem : materialsList) {
                 String materialId = ModItems.idMap.get(materialItem);
                 String b = getNameSpace(materialItem) + ':' + "item/" + getId(item);
@@ -213,7 +216,7 @@ public class TrimMaterialsProvider {
                         "}";
                 if (!createFile(file2)) {
                     System.out.println("craeteFile error");
-                    return;
+                    continue;
                 }
                 if (!writeFile(content2, file2)) {
                     System.out.println("writeFile error");
@@ -392,7 +395,7 @@ public class TrimMaterialsProvider {
                     "}";
             if (!createFile(file)) {
                 System.out.println("craeteFile error");
-                return;
+                continue;
             }
             writeFile(content, file);
         }
@@ -411,9 +414,15 @@ public class TrimMaterialsProvider {
 
     private static Boolean createFile(File file) {
         if (file.exists()) {
-            if (!file.delete()) {
+            if (file.delete()) {
+                if (deleteModel) {
+                    return false;
+                }
+            }else {
                 return false;
             }
+        }else if (deleteModel) {
+            return false;
         }
         try {
             if (file.createNewFile()) {

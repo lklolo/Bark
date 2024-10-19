@@ -1,0 +1,9 @@
+{
+  "asset_name": "acacia_bark_essence",
+  "description": {
+    "color": "#696259",
+    "translate": "trim_material.bark.acacia_bark_essence"
+  },
+  "ingredient": "bark:acacia_bark_essence",
+  "item_model_index": 0.15
+}

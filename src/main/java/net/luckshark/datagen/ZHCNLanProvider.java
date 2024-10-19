@@ -75,17 +75,17 @@ public class ZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.WARPED_BARK_BOOTS, "诡异菌菌柄靴子");
         translationBuilder.add(ModItems.BAMBOO_BARK_BOOTS, "竹靴子");
 
-        translationBuilder.add("trim_material.bark.oak_bark", "橡树质");
-        translationBuilder.add("trim_material.bark.spruce_bark", "云杉质");
-        translationBuilder.add("trim_material.bark.birch_bark", "白桦质");
-        translationBuilder.add("trim_material.bark.jungle_bark", "丛林原木质");
-        translationBuilder.add("trim_material.bark.acacia_bark", "金合欢质");
-        translationBuilder.add("trim_material.bark.dark_oak_bark", "深色橡树质");
-        translationBuilder.add("trim_material.bark.mangrove_bark", "红树质");
-        translationBuilder.add("trim_material.bark.cherry_bark", "樱花树质");
-        translationBuilder.add("trim_material.bark.crimson_bark", "绯红菌质");
-        translationBuilder.add("trim_material.bark.warped_bark", "诡异菌质");
-        translationBuilder.add("trim_material.bark.bamboo_bark", "竹质");
+        translationBuilder.add("trim_material.bark.oak_bark_essence", "橡树质");
+        translationBuilder.add("trim_material.bark.spruce_bark_essence", "云杉质");
+        translationBuilder.add("trim_material.bark.birch_bark_essence", "白桦质");
+        translationBuilder.add("trim_material.bark.jungle_bark_essence", "丛林原木质");
+        translationBuilder.add("trim_material.bark.acacia_bark_essence", "金合欢质");
+        translationBuilder.add("trim_material.bark.dark_oak_bark_essence", "深色橡树质");
+        translationBuilder.add("trim_material.bark.mangrove_bark_essence", "红树质");
+        translationBuilder.add("trim_material.bark.cherry_bark_essence", "樱花树质");
+        translationBuilder.add("trim_material.bark.crimson_bark_essence", "绯红菌质");
+        translationBuilder.add("trim_material.bark.warped_bark_essence", "诡异菌质");
+        translationBuilder.add("trim_material.bark.bamboo_bark_essence", "竹质");
 
         translationBuilder.add(ModItems.OAK_BARK_ESSENCE, "橡树精华");
         translationBuilder.add(ModItems.SPRUCE_BARK_ESSENCE, "云杉精华");

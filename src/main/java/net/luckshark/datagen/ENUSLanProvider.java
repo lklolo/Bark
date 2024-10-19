@@ -75,17 +75,17 @@ public class ENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.WARPED_BARK_BOOTS, "Warped Boots");
         translationBuilder.add(ModItems.BAMBOO_BARK_BOOTS, "Bamboo Boots");
 
-        translationBuilder.add("trim_material.bark.oak_bark", "Oak Material");
-        translationBuilder.add("trim_material.bark.spruce_bark", "Spruce Material");
-        translationBuilder.add("trim_material.bark.birch_bark", "Birch Material");
-        translationBuilder.add("trim_material.bark.jungle_bark", "Jungle Material");
-        translationBuilder.add("trim_material.bark.acacia_bark", "Acacia Material");
-        translationBuilder.add("trim_material.bark.dark_oak_bark", "Dark Oak Material");
-        translationBuilder.add("trim_material.bark.mangrove_bark", "Mangrove Material");
-        translationBuilder.add("trim_material.bark.cherry_bark", "Cherry Material");
-        translationBuilder.add("trim_material.bark.crimson_bark", "Crimson Material");
-        translationBuilder.add("trim_material.bark.warped_bark", "Warped Material");
-        translationBuilder.add("trim_material.bark.bamboo_bark", "Bamboo Material");
+        translationBuilder.add("trim_material.bark.oak_bark_essence", "Oak Material");
+        translationBuilder.add("trim_material.bark.spruce_bark_essence", "Spruce Material");
+        translationBuilder.add("trim_material.bark.birch_bark_essence", "Birch Material");
+        translationBuilder.add("trim_material.bark.jungle_bark_essence", "Jungle Material");
+        translationBuilder.add("trim_material.bark.acacia_bark_essence", "Acacia Material");
+        translationBuilder.add("trim_material.bark.dark_oak_bark_essence", "Dark Oak Material");
+        translationBuilder.add("trim_material.bark.mangrove_bark_essence", "Mangrove Material");
+        translationBuilder.add("trim_material.bark.cherry_bark_essence", "Cherry Material");
+        translationBuilder.add("trim_material.bark.crimson_bark_essence", "Crimson Material");
+        translationBuilder.add("trim_material.bark.warped_bark_essence", "Warped Material");
+        translationBuilder.add("trim_material.bark.bamboo_bark_essence", "Bamboo Material");
 
         translationBuilder.add(ModItems.OAK_BARK_ESSENCE, "Oak Essence");
         translationBuilder.add(ModItems.SPRUCE_BARK_ESSENCE, "Spruce Essence");
