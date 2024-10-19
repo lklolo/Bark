@@ -1,0 +1,9 @@
+{
+  "asset_name": "bamboo_bark",
+  "description": {
+    "color": "#828f38",
+    "translate": "trim_material.bark.bamboo_bark"
+  },
+  "ingredient": "bark:bamboo_bark",
+  "item_model_index": 0.22
+}

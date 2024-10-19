@@ -1,0 +1,12 @@
+{
+  "output": {
+    "id": "bark:oak_bark_essence"
+  },
+  "input2": {
+    "item": "bark:quilmor"
+  },
+  "input1": {
+    "item": "bark:oak_bark"
+  },
+  "type": "bark:yan_craft"
+}

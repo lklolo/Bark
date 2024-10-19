@@ -1,0 +1,12 @@
+{
+  "output": {
+    "id": "bark:crimson_bark_essence"
+  },
+  "input2": {
+    "item": "bark:quilmor"
+  },
+  "input1": {
+    "item": "bark:crimson_bark"
+  },
+  "type": "bark:yan_craft"
+}
