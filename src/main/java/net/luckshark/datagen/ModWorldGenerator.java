@@ -20,6 +20,6 @@ public class ModWorldGenerator extends FabricDynamicRegistryProvider {
 
     @Override
     public String getName() {
-        return "World Gen";
+        return "I don't want to return, Because I don't know what's the point";
     }
 }

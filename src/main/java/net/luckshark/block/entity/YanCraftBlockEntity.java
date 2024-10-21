@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.Random;
 
 public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<YanCraftData>, ImplementedInventory {
 
@@ -137,7 +138,7 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
     private void makeDamage(ItemStack stack) {
         if (stack.getDamage() < stack.getMaxDamage() - 1) {
-            stack.setDamage(stack.getDamage() + 1);
+            stack.setDamage(stack.getDamage() + new Random().nextInt(1,3));
             return;
         }
         removeStack(INPUT_SLOT2, 1);
