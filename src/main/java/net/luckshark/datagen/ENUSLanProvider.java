@@ -98,7 +98,8 @@ public class ENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.CRIMSON_BARK_ESSENCE, "Crimson Essence");
         translationBuilder.add(ModItems.WARPED_BARK_ESSENCE, "Warped Essence");
         translationBuilder.add(ModItems.BAMBOO_BARK_ESSENCE, "Bamboo Essence");
-        translationBuilder.add(ModItems.QUILMOR, "Quilmor");
+
+        translationBuilder.add(ModBlocks.QUILMOR, "Quilmor");
 
         translationBuilder.add(ModBlocks.YAN_CRAFT, "Yan");
         translationBuilder.add("container.yan_craft", "Yan Craft");

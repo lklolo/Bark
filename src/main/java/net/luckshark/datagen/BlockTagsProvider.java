@@ -2,9 +2,11 @@ package net.luckshark.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.luckshark.block.ModBlocks;
 import net.luckshark.tag.ModBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -42,5 +44,8 @@ public class BlockTagsProvider extends FabricTagProvider.BlockTagProvider{
                 .add(Blocks.CRIMSON_HYPHAE)
                 .add(Blocks.MANGROVE_WOOD)
         ;
+
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.YAN_CRAFT);
     }
 }

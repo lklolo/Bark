@@ -5,7 +5,9 @@ import net.luckshark.Bark;
 import net.luckshark.item.ItemRegisters;
 import net.luckshark.item.ModItemGroups;
 import net.luckshark.item.ModItems;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -25,11 +27,11 @@ public class BlockRegisters {
     }
     public static void registerBlockItems(String id, Block block, RegistryKey<ItemGroup> itemGroup, List<Item> list) {
         Item item =  Registry.register(Registries.ITEM, Identifier.of(Bark.MOD_ID, id), new BlockItem(block, new Item.Settings()));
-        ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(item));
-        ModItemGroups.BARK_GROUP_LIST.add(item);
         if (item instanceof BlockItem){
             ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
         }
+        ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(item));
+        ModItemGroups.BARK_GROUP_LIST.add(item);
     }
     public static Block registerBlock(String id, Block block) {
         registerBlockItems(id, block);

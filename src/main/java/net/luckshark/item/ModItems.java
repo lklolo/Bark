@@ -90,8 +90,7 @@ public class ModItems {
     public static final Item CRIMSON_BARK_BOOTS = ItemRegisters.barkArmor("crimson_bark_boots", ModArmorMaterials.CRIMSON_BARK, 5, 0, true);
     public static final Item WARPED_BARK_BOOTS = ItemRegisters.barkArmor("warped_bark_boots", ModArmorMaterials.WARPED_BARK, 5, 0, true);
 
-    public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxDamage(16)), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
-    //"Quilmor" translates from chinese "虬杪馥凝", which means "Fragrant Essence of Twisted Boughs"
+    //public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxDamage(16)), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
 
     public static void registerModItems(){
         ItemRegisters.incombustibility(CRIMSON_BARK);

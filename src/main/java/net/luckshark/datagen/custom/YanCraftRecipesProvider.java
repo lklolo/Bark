@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.luckshark.Bark;
+import net.luckshark.block.ModBlocks;
 import net.luckshark.item.ModItems;
 import net.minecraft.item.Item;
 
@@ -20,7 +21,7 @@ public class YanCraftRecipesProvider {
     static final String resourcesRoot = "F:/IDEA/Bark/bark-Fabric-1.21.1/src/main/resources/";
     public static void generate(){
         for (int i = 0; i < ModItems.BARK_LIST.size(); i++) {
-            genRecipe(ModItems.BARK_LIST.get(i), ModItems.QUILMOR, ModItems.BARK_ESSENCE_LIST.get(i));
+            genRecipe(ModItems.BARK_LIST.get(i), ModBlocks.QUILMOR.asItem(), ModItems.BARK_ESSENCE_LIST.get(i));
         }
 
         System.out.println("YanCraftRecipesProvider: A total of " + count + " files are generated");

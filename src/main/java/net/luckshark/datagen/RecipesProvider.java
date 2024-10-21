@@ -76,15 +76,13 @@ public class RecipesProvider extends FabricRecipeProvider {
         boots(ModItems.WARPED_BARK, ModItems.WARPED_BARK_BOOTS);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModBlocks.YAN_CRAFT, 1)
-                .pattern("BCB")
+                .pattern("BBB")
                 .pattern("AAA")
                 .pattern("AAA")
                 .input('A', Items.COBBLESTONE)
                 .input('B', Items.FLINT)
-                .input('C', Items.STONE_PRESSURE_PLATE)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(Items.COBBLESTONE))
                 .criterion("has_item", RecipeProvider.conditionsFromItem(Items.FLINT))
-                .criterion("has_item", RecipeProvider.conditionsFromItem(Items.STONE_PRESSURE_PLATE))
                 .offerTo(exporter, Identifier.of(Bark.MOD_ID, "yan_craft"));
     }
 

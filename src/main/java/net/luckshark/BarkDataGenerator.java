@@ -19,6 +19,7 @@ public class BarkDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(RecipesProvider::new);
 		pack.addProvider(ENUSLanProvider::new);
 		pack.addProvider(ZHCNLanProvider::new);
+		pack.addProvider(LootTableProvider::new);
 		TrimMaterialsProvider.generate(ModItems.BARK_ESSENCE_LIST);
 		YanCraftRecipesProvider.generate();
 	}

@@ -98,8 +98,8 @@ public class ZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.CRIMSON_BARK_ESSENCE, "绯红菌质精华");
         translationBuilder.add(ModItems.WARPED_BARK_ESSENCE, "诡异菌质精华");
         translationBuilder.add(ModItems.BAMBOO_BARK_ESSENCE, "竹精华");
-        translationBuilder.add(ModItems.QUILMOR, "虬杪馥凝");
 
+        translationBuilder.add(ModBlocks.QUILMOR, "虬杪馥凝");
         translationBuilder.add(ModBlocks.YAN_CRAFT, "砚");
         translationBuilder.add("container.yan_craft", "砚");
     }
