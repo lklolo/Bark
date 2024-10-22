@@ -1,4 +1,4 @@
-# Bark
+# Bark - bark and some bark-derived content
 ## Get Bark
 When using an axe to bark oak, the corresponding species of bark is dropped.
 ## Bark Synthetic Armor
