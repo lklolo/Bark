@@ -32,7 +32,7 @@ public class BarkArmorItem extends ArmorItem {
                     ))//抗性提升
                     .put(ModArmorMaterials.BIRCH_BARK.value(), new StatusEffectInstance(
                             StatusEffects.LUCK, 1, 10, false, false, false
-                    ))//幸运，在俄罗斯许多文艺作品中，白桦树都作为爱情的象征出现，被视为忠贞、执著的化身。
+                    ))//幸运
                     .put(ModArmorMaterials.JUNGLE_BARK.value(), new StatusEffectInstance(
                             StatusEffects.NIGHT_VISION, 10, 1, false, false, false
                     ))//夜视

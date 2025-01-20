@@ -25,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
@@ -32,8 +33,8 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private final int INPUT_SLOT = 0;
-    private final int OUTPUT_SLOT = 2;
     private final int INPUT_SLOT2 = 1;
+    private final int OUTPUT_SLOT = 2;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -42,6 +43,7 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
     public YanCraftBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.YAN_CRAFT_BLOCK_ENTITY, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
+
             @Override
             public int get(int index) {
                 return switch (index) {
@@ -167,12 +169,10 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
                 inventory.getStack(INPUT_SLOT2)
         );
 
-        Optional<RecipeEntry<YanCraftRecipe>> optional = getWorld().getRecipeManager().getFirstMatch(
+        return Objects.requireNonNull(getWorld()).getRecipeManager().getFirstMatch(
                 YanCraftRecipe.Type.INSTANCE,
                 recipeInput,
                 getWorld());
-
-        return optional;
     }
 
 
@@ -186,16 +186,13 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private boolean hasRecipe() {
         Optional<RecipeEntry<YanCraftRecipe>> recipe = getCurrentRecipe();
-        if (!recipe.isPresent()) {
+        if (recipe.isEmpty()) {
             return false;
         }
         if (!canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null))) {
             return false;
         }
-        if (!canInsertIntoOutputSlot(recipe.get().value().getResult(null).getItem())) {
-            return false;
-        }
-        return true;
+        return canInsertIntoOutputSlot(recipe.get().value().getResult(null).getItem());
     }
 
 

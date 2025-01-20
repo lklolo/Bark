@@ -13,7 +13,6 @@ import net.minecraft.util.Identifier;
 public class YanCraftScreen extends HandledScreen<YanCraftScreenHandler> {
 
     private static final Identifier TEXTURE = Identifier.of(Bark.MOD_ID, "textures/gui/yan_craft_gui.png");
-    private static final Text RATE = Text.translatable("gui.yan_craft.rate");
 
     public YanCraftScreen(YanCraftScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -22,8 +21,8 @@ public class YanCraftScreen extends HandledScreen<YanCraftScreenHandler> {
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
-        context.drawText(this.textRenderer, RATE, 120, 6, 0x404040, false);
-        context.drawText(this.textRenderer, String.valueOf(YanCraftRecipe.getSuccessRate()), 120, 16, 0x404040, false);
+        context.drawText(this.textRenderer, Text.translatable("gui.yan_craft.rate"), 98, 34, 0x404040, false);
+        context.drawText(this.textRenderer, String.valueOf(YanCraftRecipe.getSuccessRate()), 100, 44, 0x404040, false);
     }
 
     @Override

@@ -1,8 +1,6 @@
 package net.luckshark.item;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,8 +87,6 @@ public class ModItems {
     public static final Item BAMBOO_BARK_BOOTS = ItemRegisters.barkArmor("bamboo_bark_boots", ModArmorMaterials.BAMBOO_BARK, 3, 0);
     public static final Item CRIMSON_BARK_BOOTS = ItemRegisters.barkArmor("crimson_bark_boots", ModArmorMaterials.CRIMSON_BARK, 5, 0, true);
     public static final Item WARPED_BARK_BOOTS = ItemRegisters.barkArmor("warped_bark_boots", ModArmorMaterials.WARPED_BARK, 5, 0, true);
-
-    //public static final Item QUILMOR = ItemRegisters.registerItem("quilmor", new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxDamage(16)), ItemGroups.INGREDIENTS, ModItemGroups.BARK_GROUP_LIST);
 
     public static void registerModItems(){
         ItemRegisters.incombustibility(CRIMSON_BARK);
