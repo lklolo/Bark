@@ -1,0 +1,9 @@
+{
+  "asset_name": "spruce_bark",
+  "description": {
+    "color": "#231006",
+    "translate": "trim_material.bark.spruce_bark"
+  },
+  "ingredient": "bark:spruce_bark",
+  "item_model_index": 0.12
+}

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.luckshark.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
+    "TryStripMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "RenderLayersMixin"
+  ]
+}

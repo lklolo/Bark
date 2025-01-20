@@ -1,0 +1,9 @@
+{
+  "asset_name": "crimson_bark_essence",
+  "description": {
+    "color": "#7b0000",
+    "translate": "trim_material.bark.crimson_bark_essence"
+  },
+  "ingredient": "bark:crimson_bark_essence",
+  "item_model_index": 0.19
+}

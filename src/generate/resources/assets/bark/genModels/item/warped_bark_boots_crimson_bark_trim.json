@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bark:item/warped_bark_boots",
+    "layer1": "bark:trims/items/boots_trim_crimson_bark"
+  }
+}

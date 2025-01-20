@@ -1,0 +1,9 @@
+{
+  "asset_name": "birch_bark_essence",
+  "description": {
+    "color": "#bebeae",
+    "translate": "trim_material.bark.birch_bark_essence"
+  },
+  "ingredient": "bark:birch_bark_essence",
+  "item_model_index": 0.13
+}

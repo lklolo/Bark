@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bark:item/bamboo_bark_helmet",
+    "layer1": "bark:trims/items/helmet_trim_mangrove_bark"
+  }
+}

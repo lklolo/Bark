@@ -1,0 +1,9 @@
+{
+  "asset_name": "dark_oak_bark_essence",
+  "description": {
+    "color": "#1c150b",
+    "translate": "trim_material.bark.dark_oak_bark_essence"
+  },
+  "ingredient": "bark:dark_oak_bark_essence",
+  "item_model_index": 0.16
+}

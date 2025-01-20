@@ -1,0 +1,9 @@
+{
+  "asset_name": "cherry_bark",
+  "description": {
+    "color": "#301d29",
+    "translate": "trim_material.bark.cherry_bark"
+  },
+  "ingredient": "bark:cherry_bark",
+  "item_model_index": 0.18
+}

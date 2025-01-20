@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bark:item/spruce_bark_chestplate",
+    "layer1": "bark:trims/items/chestplate_trim_oak_bark_essence"
+  }
+}

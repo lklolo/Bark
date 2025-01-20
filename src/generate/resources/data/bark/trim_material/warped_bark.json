@@ -1,0 +1,9 @@
+{
+  "asset_name": "warped_bark",
+  "description": {
+    "color": "#16615b",
+    "translate": "trim_material.bark.warped_bark"
+  },
+  "ingredient": "bark:warped_bark",
+  "item_model_index": 0.21
+}
