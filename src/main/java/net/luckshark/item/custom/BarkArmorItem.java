@@ -89,7 +89,6 @@ public class BarkArmorItem extends ArmorItem {
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
-        DynamicRegistryManager manager = player.getWorld().getRegistryManager();
         ArmorTrimMaterial trimMaterial = getArmorTrimMaterial(player);
         if (trimMaterial != null) {
             StatusEffectInstance effect = ARMOR_MATERIALS_MAP.get(TRIM_MATERIALS_MAP.get(trimMaterial.assetName()));
