@@ -132,7 +132,7 @@ public class YanCraftBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private void craftItem() {
         Optional<RecipeEntry<YanCraftRecipe>> recipe = getCurrentRecipe();
-        if (isCraftSucceed(YanCraftRecipe.getSuccessRate())) {
+        if (isCraftSucceed(YanCraftRecipe.getSuccessRate()) && recipe.isPresent()) {
             this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(),
                     getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
         }
