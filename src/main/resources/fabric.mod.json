@@ -3,15 +3,15 @@
 	"id": "bark",
 	"version": "${version}",
 	"name": "Bark",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Something that extends through bark",
 	"authors": [
-		"Me!"
+		"LKLOLO"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": "https://github.com/lklolo/Bark"
 	},
-	"license": "CC0-1.0",
+	"license": "Luckshark Dedicated Public License (LDPL) v1",
 	"icon": "assets/bark/icon.png",
 	"environment": "*",
 	"entrypoints": {
