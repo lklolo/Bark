@@ -9,5 +9,3 @@ You can use YanCraft to synthesize bark in Quilmor into BarkEssence, which can b
 When wearing the same type of Bark armor or armor with Bark as the tattoo material all over the body, for each type of Bark, the player gets a different effect.
 ## Eat Bark
 You can consume bark and may get some effects, but beware!
-## at last
-That's all, I know this mod is boring, but I'm not a professional developer, it's enough that writing mods can bring me fun!
